@@ -203,7 +203,7 @@
                     strings: [
                         'API Developer',
                         'Community Manager',
-                        'Speaker at Events'
+                        'Developer Advocate'
                     ],
                     breakLines: false
                 });

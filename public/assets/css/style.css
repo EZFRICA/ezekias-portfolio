@@ -333,6 +333,16 @@ Primary use:    pxdraft
   }
 }
 
+@media (max-width: 768px) {
+  .logo-dark {
+    width: 60%;
+  }
+
+  .logo-light {
+    width: 60%;
+  }
+}
+
 .footer {
   position: relative;
   background-color: var(--px-bg);
