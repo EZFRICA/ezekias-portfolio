@@ -1,8 +1,8 @@
-(function($) {
+(function ($) {
     "use strict";
     var WEA = {};
     var plugin_track = 'assets/vendor/';
-    $.fn.exists = function() {
+    $.fn.exists = function () {
         return this.length > 0;
     };
 
@@ -11,12 +11,12 @@
     /*--------------------
         * Menu Close
     ----------------------*/
-    WEA.MenuClose = function() {
-        $(".toggler-menu").on('click', function() {
+    WEA.MenuClose = function () {
+        $(".toggler-menu").on('click', function () {
             $(this).toggleClass('open');
             $('.header-left-fixed, .header-top-fixed').stop().toggleClass('menu-open menu-open-desk');
         });
-        $('.header-left-fixed a, .header-top-fixed a').on('click', function() {
+        $('.header-left-fixed a, .header-top-fixed a').on('click', function () {
             var toggle = $('.toggler-menu').is(':visible');
             if (toggle) {
                 $('.header-left-fixed, .header-top-fixed').removeClass('menu-open');
@@ -24,7 +24,7 @@
             }
         });
 
-        $('.navbar-nav a').on('click', function() {
+        $('.navbar-nav a').on('click', function () {
             var toggle = $('.navbar-toggler').is(':visible');
             if (toggle) {
                 $('.navbar-collapse').collapse('hide');
@@ -36,7 +36,7 @@
     /* ---------------------------------------------- /*
      * Header Fixed
     /* ---------------------------------------------- */
-    WEA.HeaderFixd = function() {
+    WEA.HeaderFixd = function () {
         var HscrollTop = $(window).scrollTop();
         if (HscrollTop >= 100) {
             $('body').addClass('fixed-header');
@@ -49,11 +49,11 @@
     /*--------------------
     * OwlSlider
     ----------------------*/
-    WEA.Owl = function() {
+    WEA.Owl = function () {
         var owlslider = $("div.owl-carousel");
         if (owlslider.length > 0) {
-            loadScript(plugin_track + 'owl-carousel/js/owl.carousel.min.js', function() {
-                owlslider.each(function() {
+            loadScript(plugin_track + 'owl-carousel/js/owl.carousel.min.js', function () {
+                owlslider.each(function () {
                     var $this = $(this),
                         $items = ($this.data('items')) ? $this.data('items') : 1,
                         $loop = ($this.attr('data-loop')) ? $this.data('loop') : true,
@@ -95,9 +95,9 @@
     /* ---------------------------------------------- /*
        * lightbox gallery
       /* ---------------------------------------------- */
-    WEA.Gallery = function() {
+    WEA.Gallery = function () {
         if ($(".lightbox-gallery").exists() || $(".popup-youtube, .popup-vimeo, .popup-gmaps, .px_modal").exists()) {
-            loadScript(plugin_track + 'magnific/jquery.magnific-popup.min.js', function() {
+            loadScript(plugin_track + 'magnific/jquery.magnific-popup.min.js', function () {
                 if ($(".lightbox-gallery").exists()) {
                     $('.lightbox-gallery').magnificPopup({
                         delegate: '.gallery-link',
@@ -137,10 +137,10 @@
     /*--------------------
     * Masonry
     ----------------------*/
-    WEA.masonry = function() {
+    WEA.masonry = function () {
         var portfolioWork = $('.portfolio-content');
         if ($(".portfolio-content").exists()) {
-            loadScript(plugin_track + 'isotope/isotope.pkgd.min.js', function() {
+            loadScript(plugin_track + 'isotope/isotope.pkgd.min.js', function () {
                 if ($(".portfolio-content").exists()) {
                     $(portfolioWork).isotope({
                         resizable: false,
@@ -151,12 +151,12 @@
                     //Filtering items on portfolio.html
                     var portfolioFilter = $('.filter li');
                     // filter items on button click
-                    $(portfolioFilter).on('click', function() {
+                    $(portfolioFilter).on('click', function () {
                         var filterValue = $(this).attr('data-filter');
                         portfolioWork.isotope({ filter: filterValue });
                     });
                     //Add/remove class on filter list
-                    $(portfolioFilter).on('click', function() {
+                    $(portfolioFilter).on('click', function () {
                         $(this).addClass('active').siblings().removeClass('active');
                     });
                 }
@@ -167,8 +167,8 @@
     /*--------------------
           * Progress Bar 
       ----------------------*/
-    WEA.ProgressBar = function() {
-        $(".skill-bar .skill-bar-in").each(function() {
+    WEA.ProgressBar = function () {
+        $(".skill-bar .skill-bar-in").each(function () {
             var bottom_object = $(this).offset().top + $(this).outerHeight();
             var bottom_window = $(window).scrollTop() + $(window).height();
             var progressWidth = $(this).attr('aria-valuenow') + '%';
@@ -183,10 +183,10 @@
     /*--------------------
         * particles
     ----------------------*/
-    WEA.particles = function() {
+    WEA.particles = function () {
         if ($("#particles-box").exists()) {
-            loadScript(plugin_track + 'particles/particles.min.js', function() {});
-            loadScript(plugin_track + 'particles/particles-app.js', function() {});
+            loadScript(plugin_track + 'particles/particles.min.js', function () { });
+            loadScript(plugin_track + 'particles/particles-app.js', function () { });
         }
     }
 
@@ -194,15 +194,15 @@
     /*--------------------
         * Type It
     ----------------------*/
-    WEA.mTypeIt = function() {
+    WEA.mTypeIt = function () {
         if ($("#type-it").exists()) {
-            loadScript(plugin_track + 'typeit-master/typeit.js', function() {
+            loadScript(plugin_track + 'typeit-master/typeit.js', function () {
                 new TypeIt('#type-it', {
                     speed: 200,
                     loop: true,
                     strings: [
-                        'API Developer',
-                        'Community Manager',
+                        'Applied AI Engineer',
+                        'Community Builder',
                         'Developer Advocate'
                     ],
                     breakLines: false
@@ -210,11 +210,11 @@
             });
         }
     }
-    WEA.one_page = function() {
+    WEA.one_page = function () {
         //var HHeight = $('.navbar').outerHeight();
         var $one_page_nav = $('.one-page-nav');
         if ($one_page_nav.length > 0) {
-            $one_page_nav.each(function() {
+            $one_page_nav.each(function () {
                 $.scrollIt({
                     upKey: 38, // key code to navigate to the next section
                     downKey: 40, // key code to navigate to the previous section
@@ -231,14 +231,14 @@
     /*--------------------
     * Counter JS
     ----------------------*/
-    WEA.Counter = function() {
+    WEA.Counter = function () {
         var counter = jQuery(".counter");
         var $counter = $('.counter');
         if (counter.length > 0) {
-            loadScript(plugin_track + 'counter/jquery.countTo.js', function() {
-                $counter.each(function() {
+            loadScript(plugin_track + 'counter/jquery.countTo.js', function () {
+                $counter.each(function () {
                     var $elem = $(this);
-                    $elem.appear(function() {
+                    $elem.appear(function () {
                         $elem.find('.count').countTo({
                             speed: 2000,
                             refreshInterval: 10
@@ -274,11 +274,11 @@
     };
 
     // Window on Load
-    $(window).on("load", function() {
+    $(window).on("load", function () {
         WEA.masonry();
     });
     // Document on Ready
-    $(document).ready(function() {
+    $(document).ready(function () {
         WEA.particles(),
             WEA.HeaderFixd(),
             WEA.MenuClose(),
@@ -291,13 +291,13 @@
     });
 
     // Document on Scrool
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
         WEA.ProgressBar(),
             WEA.HeaderFixd();
     });
 
     // Window on Resize
-    $(window).on("resize", function() {});
+    $(window).on("resize", function () { });
 
 
 })(jQuery);
