@@ -22,9 +22,6 @@
   <meta name="twitter:title" content="AI agent memory research: the Agent Processor Unit">
   <meta name="twitter:description" content="Open research on AI agent memory and lifecycle: the Agent Processor Unit, Akili, Urithi and the Context Lifecycle Engine, with articles, code and measurements.">
   <meta name="twitter:image" content="https://ezekias.dev/assets/og/research.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -99,8 +96,10 @@
   </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/site/site.css">
-  <script src="/assets/site/site.js"></script>
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js" defer></script>
   <style>
     .page-hero { padding-block: 4rem 3rem; display: grid; gap: 1.25rem; }
     .tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.25rem; }

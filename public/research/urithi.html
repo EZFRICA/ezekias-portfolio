@@ -22,9 +22,6 @@
   <meta name="twitter:title" content="Urithi: how knowledge moves through an AI tutor system">
   <meta name="twitter:description" content="Follow a rule from an elder’s voice to a learner’s offline package: evidence, working memory, the debrief, access-filtered search and signed packages.">
   <meta name="twitter:image" content="https://ezekias.dev/assets/og/urithi.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -141,10 +138,12 @@
 }
   </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/site/site.css">
   <link rel="stylesheet" href="/assets/site/arch.css">
   <link rel="stylesheet" href="/assets/site/flow.css">
-  <script src="/assets/site/site.js"></script>
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js" defer></script>
   <style>
     .page-hero { padding-block: 3.5rem 2.5rem; display: grid; gap: 1.1rem; }
     .crumbs { font-family: var(--mono); font-size: 0.88rem; color: var(--muted); }
