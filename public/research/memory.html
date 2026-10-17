@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>How AI agent memory evolved, from Context Cascade to the APU | Ezekias Bokove</title>
+  <meta name="description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
+  <meta name="author" content="Ezekias Bokove">
+  <link rel="canonical" href="https://ezekias.dev/research/memory">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="How AI agent memory evolved, from Context Cascade to the APU">
+  <meta property="og:description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
+  <meta property="og:url" content="https://ezekias.dev/research/memory">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/memory.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
+  <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="How AI agent memory evolved, from Context Cascade to the APU">
+  <meta name="twitter:description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/memory.png">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ezekias.dev/research/memory#webpage",
+   "url": "https://ezekias.dev/research/memory",
+   "name": "How AI agent memory evolved, from Context Cascade to the APU | Ezekias Bokove",
+   "description": "How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/memory.png",
+   "headline": "How AI agent memory evolved, from Context Cascade to the APU",
+   "author": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "datePublished": "2026-10-17",
+   "dateModified": "2026-10-17",
+   "image": "https://ezekias.dev/assets/og/memory.png",
+   "mainEntityOfPage": "https://ezekias.dev/research/memory",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI agent memory"
+    },
+    {
+     "@type": "Thing",
+     "name": "Agent Processor Unit"
+    },
+    {
+     "@type": "Thing",
+     "name": "Memory hierarchy"
+    }
+   ],
+   "citation": [
+    "https://ezekiasb.medium.com/context-cascade-architecture-cca-a-new-paradigm-for-context-management-in-chatbots-526d879979bb",
+    "https://medium.com/google-cloud/user-centric-context-engineering-bridging-the-gap-between-algorithmic-optimisation-and-user-cc01e1eba25a",
+    "https://medium.com/google-cloud/ux-driven-agent-memory-when-humans-decide-what-ai-is-allowed-to-know-ef9d293e6fe4",
+    "https://medium.com/google-cloud/agent-os-what-von-neumann-knew-that-your-llm-doesnt-4177b563f493",
+    "https://medium.com/google-cloud/from-agent-os-to-agent-processor-unit-cdd797fb6287",
+    "https://ezekiasb.medium.com/implementing-the-agent-processor-unit-a-tutor-that-runs-offline-d10b77803889"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Memory",
+     "item": "https://ezekias.dev/research/memory"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site/site.css?v=631c539d">
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js?v=5e7860f8" defer></script>
+  <style>
+    .page-hero { padding-block: 3.5rem 2.5rem; display: grid; gap: 1.1rem; }
+    .crumbs { font-family: var(--mono); font-size: 0.88rem; color: var(--muted); }
+    .crumbs a { color: var(--muted); }
+    .story-wrap { padding-bottom: 4rem; }
+    .next-track { border-top: 1px solid var(--rule); padding-block: 3rem 4rem; display: grid; gap: 0.75rem; }
+    .next-track a.big { font-family: var(--display); font-stretch: 112%; font-weight: 720; font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem); text-decoration: none; }
+    .next-track a.big:hover { color: var(--teal); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><b>Ezekias Bokove</b><span>Agent Processor Unit</span></a>
+      <ul class="nav" id="site-nav">
+        <li><a href="/research" aria-current="page">Research</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="systems-menu">Systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="sub" id="systems-menu">
+            <li><a href="/research/urithi"><b>Urithi</b><span>how knowledge moves</span></a></li>
+            <li><a href="/research/cle"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
+          </ul>
+        </li>
+        <li><a href="/#writing">Writing</a></li>
+        <li><a href="/#speaking">Speaking</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="page-hero narrow">
+      <p class="crumbs"><a href="/research">Research</a> / Memory track</p>
+      <h1>What an agent is <em>allowed to know</em></h1>
+      <p class="lede">Eight stages, from a chatbot that forgot too much to a tutor that runs offline and a system that hands on an elder’s knowledge. Scroll, or press play: each component appears when it was introduced, changes when it was rethought, and leaves when it was dropped.</p>
+    </section>
+
+    <div class="story story-wrap">
+      <ol class="steps-list" data-track="mem">
+        <li>
+          <article class="step" data-step="0">
+            <p class="step-meta"><span class="part">Prologue</span><time datetime="2025-04-01">2025-04-01</time><span class="pill">theory</span></p>
+            <h3>Context Cascade Architecture</h3>
+            <p>It started with a user’s frustration: repeating to a chatbot what it had already forgotten. The answer was to stop keeping everything in one place.</p>
+            <ul class="diff">
+              <li class="add">A cascade: context window, temporary memory, persistent memory, external database. Queried in order, and only when the level above is not enough.</li>
+              <li class="add">Historical blocks with metadata, searched from the most recent, skipped on their metadata before their content is read, with a threshold to stop early.</li>
+              <li class="opt">Redis for the temporary buffer, and any vector, SQL or NoSQL store for the archive.</li>
+            </ul>
+            <p class="muted">Among the use cases: personalised tutors, and assistants for the elderly. Both come back at the end of this page.</p>
+            <p class="step-links">
+              <a href="https://ezekiasb.medium.com/context-cascade-architecture-cca-a-new-paradigm-for-context-management-in-chatbots-526d879979bb">The paradigm</a>
+              <a href="https://ezekiasb.medium.com/context-cascade-architecture-temporary-memory-the-adaptive-engine-of-intelligent-chatbots-67a14ad98ae5">Temporary memory</a>
+              <a href="https://ezekiasb.medium.com/advanced-strategies-for-context-cascade-architectures-persistent-memory-af26f04a9fd1">Persistent memory</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="1">
+            <p class="step-meta"><span class="part">Part 2</span><time datetime="2026-01-20">2026-01-20</time><span class="pill">theory + code</span></p>
+            <h3>User-Centric Context Engineering</h3>
+            <p>The more autonomous an agent becomes, the less users trust it. Context stops being an implementation detail and becomes a product feature.</p>
+            <ul class="diff">
+              <li class="del">The automatic cascade. An algorithm no longer decides alone what is kept.</li>
+              <li class="add">Inbox and Bank. The agent writes to an Inbox it can never read. Only facts the user approves reach the Bank, stamped <code>approved_at</code>.</li>
+              <li class="add">A glass-box dashboard, and agentic refactoring: change the memory with one sentence.</li>
+              <li class="chg">Extraction moves to a fire-and-forget background worker.</li>
+              <li class="opt">Three modes on the same stack: opaque, user-controlled, hybrid. The hybrid writes optimistically and lets the user correct afterwards.</li>
+            </ul>
+            <p class="quote">A black box breeds mistrust, a gate breeds fatigue, a garden breeds collaboration.</p>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/user-centric-context-engineering-bridging-the-gap-between-algorithmic-optimisation-and-user-cc01e1eba25a">Article</a>
+              <a href="https://github.com/EZFRICA/context-engineering">EZFRICA/context-engineering</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="2">
+            <p class="step-meta"><span class="part">Part 3</span><time datetime="2026-03-15">2026-03-15</time><span class="pill">theory + code</span></p>
+            <h3>UX-Driven Agent Memory</h3>
+            <p>The problem gets a name, context pollution, and memory gets a shape. The model is still human memory: working, episodic, semantic.</p>
+            <ul class="diff">
+              <li class="add">A Living DLL decides what the agent may see: four fixed blocks always injected, up to eight dynamic ones the agent proposes and the user confirms.</li>
+              <li class="add">BMJ, the Bidirectional Metadata Jump: test the head, and below the threshold of its type, jump to the tail and walk back. The prologue’s most-recent-first search, made bidirectional.</li>
+              <li class="add">Letta stores, Weaviate indexes, the DLL decides.</li>
+              <li class="del">Inbox and Bank. Control moves from approving every fact to forcing or silencing whole blocks.</li>
+              <li class="opt">Twelve blocks is the limit for a travel agent, not a universal setting.</li>
+            </ul>
+            <p class="quote">Fixed blocks are a contract, Force Override is a right, BMJ is a service.</p>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/ux-driven-agent-memory-when-humans-decide-what-ai-is-allowed-to-know-ef9d293e6fe4">Article</a>
+              <a href="https://github.com/EZFRICA/ux-driven-agent-memory">EZFRICA/ux-driven-agent-memory</a>
+              <span class="muted">code the next day</span>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="3">
+            <p class="step-meta"><span class="part">Part 4</span><time datetime="2026-04-12">2026-04-12</time><span class="pill">theory</span></p>
+            <h3>Agent OS: what von Neumann knew</h3>
+            <p>The analogy changes source, from human memory to the computer. In 1945 the answer was not bigger registers but separate layers.</p>
+            <ul class="diff">
+              <li class="chg">The Force (Override) checkbox becomes an interrupt: inspect the assembled context before the LLM sees it, remove or inject blocks, roll back a write.</li>
+              <li class="add">One memory shared by every interface: terminal, IDE, dashboard.</li>
+              <li class="add">Native multi-tenancy, one Weaviate tenant per agent.</li>
+              <li class="chg">The write-back runs after the reply and is transactional: no layer knows something the others don’t.</li>
+            </ul>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/agent-os-what-von-neumann-knew-that-your-llm-doesnt-4177b563f493">Article</a>
+              <span class="muted">same repository as part 3</span>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="4">
+            <p class="step-meta"><span class="part">Part 5</span><time datetime="2026-04-17">2026-04-17</time><span class="pill">theory + code</span></p>
+            <h3>Agent Processor Unit</h3>
+            <p>The prologue’s cascade finally gets its real name, a memory hierarchy, and a processor’s units to run it.</p>
+            <ul class="diff">
+              <li class="add">An L1 cache in RAM in front of the DLL. Weaviate becomes L3, Letta becomes L4.</li>
+              <li class="add">LRU paging at twelve active blocks, with page faults that bring an evicted block back.</li>
+              <li class="add">A scheduler with four priorities: the reply first, archive sync in the background with three retries, garbage collection when idle.</li>
+              <li class="add">A Tool Execution Unit that caches tool results for fifteen minutes.</li>
+              <li class="chg">BMJ becomes the TLB: the DLL first, L3 only below 0.80.</li>
+            </ul>
+            <div class="measured"><ul><li>78% of queries answered from L1, without touching the vector database</li></ul></div>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/from-agent-os-to-agent-processor-unit-cdd797fb6287">Article</a>
+              <a href="https://github.com/EZFRICA/Agent-Processor-Unit">EZFRICA/Agent-Processor-Unit</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="5">
+            <p class="step-meta"><span class="part">Implementation</span><time datetime="2026-08-16">2026-08-16</time><span class="pill">code + measurement</span></p>
+            <h3>Akili, a tutor that runs offline</h3>
+            <p>The prologue’s personalised tutor, sixteen months later, on salvaged hardware where the connection comes and goes. One rule: only inference may leave the machine.</p>
+            <ul class="diff">
+              <li class="del">Letta and the cloud tier. A student’s memory is bounded by its blocks, not by how long they talk.</li>
+              <li class="chg">Weaviate becomes LanceDB, on the device. The embeddings API becomes MiniLM in ONNX, shipped with the app.</li>
+              <li class="chg">The TEU keeps three local tools. The calculator parses the expression instead of calling <code>eval</code>.</li>
+              <li class="warn">The write-back blocks the reply again: the scheduler is there but never started. Measured, then named a design error.</li>
+              <li class="opt">The model is a setting: point <code>LLM_PROVIDER</code> at a local Ollama and nothing leaves.</li>
+            </ul>
+            <div class="measured"><ul>
+              <li>full turn 29.0 s median, the local stages ~250 ms, 0.9%</li>
+              <li>memory extraction: a third of the turn, after the answer exists</li>
+              <li>715 MiB peak, 0.21 MB of storage over 40 turns</li>
+            </ul></div>
+            <p class="muted">Two silent failures found on the way: BMJ promotions undone every turn by a second copy of the DLL, and vectors of two different widths between the course pipeline and the client.</p>
+            <p class="step-links">
+              <a href="https://ezekiasb.medium.com/implementing-the-agent-processor-unit-a-tutor-that-runs-offline-d10b77803889">Article</a>
+              <a href="https://github.com/EZFRICA/alu-education-agent">EZFRICA/alu-education-agent</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="6">
+            <p class="step-meta"><span class="part">Implementation</span><time datetime="2026-09">2026-09 → 10</time><span class="pill">code + measurement</span></p>
+            <h3>Akili, the current version</h3>
+            <p>The tutor grows past the article: a guard in front of every exchange, whatever the modality, and a model chosen by measurement for each role.</p>
+            <ul class="diff">
+              <li class="add">A topical guard, with a separate verdict for distress that is never counted and never stored.</li>
+              <li class="add">Text, voice and braille, all through the same guard.</li>
+              <li class="add">Kept out of memory on purpose: escalation events and the pupil’s notebook. The tutor never reads the notebook, as the UCCE agent never read its Inbox.</li>
+              <li class="warn">The write-back is still awaited. In the background it measured 34.6% less perceived latency, but the decision is open.</li>
+            </ul>
+            <div class="measured"><ul>
+              <li>guard: 69 of 69 red-team attacks held, in 0.66 s</li>
+              <li>memory search 12 ms, DLL load under 1 ms</li>
+            </ul></div>
+            <p class="step-links">
+              <a href="https://github.com/EZFRICA/apu-akili">EZFRICA/apu-akili</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="7">
+            <p class="step-meta"><span class="part">In progress</span><time datetime="2026-10">2026-10</time><span class="pill">not yet published</span></p>
+            <h3>Urithi, handing on what a person knows</h3>
+            <p>The prologue’s assistant for the elderly, turned around: the elder teaches. Urithi structures the knowledge during the exchange and publishes nothing until the guardian has heard it back and confirmed it.</p>
+            <ul class="diff">
+              <li class="add">Evidence kept verbatim and attributed, and a library in Neo4j searched by meaning and by words, filtered by access level.</li>
+              <li class="add">Memory per knowledge: a block written on one knowledge never reaches an answer on another. Every block keeps its source.</li>
+              <li class="add">The learner reads what is remembered about them and deletes any of it, from every tier.</li>
+              <li class="add">Page-in: an L3 hit comes back into the DLL. A meter puts the write-back under a budget.</li>
+              <li class="rej">Team memory, seen in TencentDB Agent Memory. Rejected: it would cross the two sides and the organisations kept apart.</li>
+            </ul>
+            <div class="measured"><ul>
+              <li>first right part 32 of 38 with words beside meaning, against 30</li>
+              <li>364 deliberate defects, each must be caught by the tests</li>
+            </ul></div>
+            <p class="muted">Almost every idea here was already in UCCE in January: scoped memory, a source for each fact, memory the person can see.</p>
+            <p class="step-links">
+              <a href="/research/urithi">How Urithi works, step by step</a>
+              <a href="https://github.com/EZFRICA/apu-urithi">EZFRICA/apu-urithi</a>
+            </p>
+          </article>
+        </li>
+      </ol>
+
+      <div class="story-stage">
+        <div id="player" tabindex="-1"></div>
+      </div>
+    </div>
+
+    <section class="next-track">
+      <p class="eyebrow">The other half of the series</p>
+      <a class="big" href="/research/context">How agents are born, promoted and retired</a>
+      <p class="muted">From Context as a Service to the Context Lifecycle Engine.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
+      <ul>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/assets/site/data-memory.js?v=703765c1" defer></script>
+  <script src="/assets/site/arch.js?v=d0a09120" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new ArchPlayer(document.getElementById('player'), window.ARCH_MEMORY, { steps: document.querySelectorAll('.step') });
+    });
+  </script>
+</body>
+</html>

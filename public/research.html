@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI agent memory research: the Agent Processor Unit | Ezekias Bokove</title>
+  <meta name="description" content="Open research on AI agent memory and lifecycle: the Agent Processor Unit, Akili, Urithi and the Context Lifecycle Engine, with articles, code and measurements.">
+  <meta name="author" content="Ezekias Bokove">
+  <link rel="canonical" href="https://ezekias.dev/research">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="AI agent memory research: the Agent Processor Unit">
+  <meta property="og:description" content="Open research on AI agent memory and lifecycle: the Agent Processor Unit, Akili, Urithi and the Context Lifecycle Engine, with articles, code and measurements.">
+  <meta property="og:url" content="https://ezekias.dev/research">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/research.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
+  <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="AI agent memory research: the Agent Processor Unit">
+  <meta name="twitter:description" content="Open research on AI agent memory and lifecycle: the Agent Processor Unit, Akili, Urithi and the Context Lifecycle Engine, with articles, code and measurements.">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/research.png">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "CollectionPage",
+   "@id": "https://ezekias.dev/research#webpage",
+   "url": "https://ezekias.dev/research",
+   "name": "AI agent memory research: the Agent Processor Unit | Ezekias Bokove",
+   "description": "Open research on AI agent memory and lifecycle: the Agent Processor Unit, Akili, Urithi and the Context Lifecycle Engine, with articles, code and measurements.",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/research.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site/site.css?v=631c539d">
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js?v=5e7860f8" defer></script>
+  <style>
+    .page-hero { padding-block: 4rem 3rem; display: grid; gap: 1.25rem; }
+    .tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.25rem; }
+    .track {
+      --accent: var(--copper);
+      display: grid; gap: 1rem; align-content: start; text-decoration: none;
+      background: var(--card); border: 1px solid var(--rule); border-top: 3px solid var(--accent); border-radius: 10px; padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .track.ctx { --accent: var(--teal); }
+    .track:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .track .eyebrow { color: var(--accent); }
+    .track h2 { font-size: 1.6rem; }
+    .track ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; font-family: var(--mono); font-size: 0.88rem; color: var(--muted); }
+    .track ol li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; }
+    .track ol li.soon { font-style: italic; }
+    .track .go { font-family: var(--mono); font-size: 0.92rem; color: var(--accent); }
+
+    .series .rows a { grid-template-columns: 7.5rem 7.5rem minmax(0, 1fr) auto; }
+    .series .rows p { grid-column: 3; }
+    .series .rows .part { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
+    @media (max-width: 640px) {
+      .series .rows a { grid-template-columns: minmax(0, 1fr); }
+      .series .rows p { grid-column: 1; }
+    }
+
+    .returns { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.75rem; }
+    .return { display: grid; gap: 0.6rem; align-content: start; border-top: 2px solid var(--copper); padding-top: 1rem; }
+    .return .span { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); }
+    .return p { font-size: 0.98rem; }
+
+    .method { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.5rem; counter-reset: m; }
+    .method div { display: grid; gap: 0.4rem; align-content: start; }
+    .method b { font-family: var(--display); font-stretch: 104%; font-size: 1.05rem; }
+    .method p { color: var(--muted); font-size: 0.97rem; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><b>Ezekias Bokove</b><span>Agent Processor Unit</span></a>
+      <ul class="nav" id="site-nav">
+        <li><a href="/research" aria-current="page">Research</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="systems-menu">Systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="sub" id="systems-menu">
+            <li><a href="/research/urithi"><b>Urithi</b><span>how knowledge moves</span></a></li>
+            <li><a href="/research/cle"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
+          </ul>
+        </li>
+        <li><a href="/#writing">Writing</a></li>
+        <li><a href="/#speaking">Speaking</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container">
+      <div class="page-hero narrow">
+        <h1>LLMs don’t have a memory problem. They have an <em>architecture</em> problem.</h1>
+        <p class="lede">An open research series in a prologue and eight parts. Each part publishes the architecture before the code. Then the code and the measurements correct it. Every stage borrows from an architecture that has already proven itself, without copying it whole.</p>
+      </div>
+
+      <div class="tracks">
+        <a class="track mem" href="/research/memory">
+          <p class="eyebrow">Memory track, 8 stages</p>
+          <h2>What an agent is allowed to know</h2>
+          <p class="muted">From a cascade of memories to a hierarchy with paging, offline tiers, and memory the person can read and delete.</p>
+          <ol>
+            <li><span>2025-04-01</span>Context Cascade Architecture</li>
+            <li><span>2026-01-20</span>User-Centric Context Engineering</li>
+            <li><span>2026-03-15</span>UX-Driven Agent Memory</li>
+            <li><span>2026-04-12</span>Agent OS</li>
+            <li><span>2026-04-17</span>Agent Processor Unit</li>
+            <li><span>2026-08-16</span>Akili</li>
+            <li><span>2026-10</span>Urithi</li>
+          </ol>
+          <span class="go">Watch the architecture evolve</span>
+        </a>
+        <a class="track ctx" href="/research/context">
+          <p class="eyebrow">Context track, 6 stages</p>
+          <h2>How agents are born, promoted and retired</h2>
+          <p class="muted">From versioned blocks that developers assemble to agents that grow from usage and are retired on evidence.</p>
+          <ol>
+            <li><span>2025-08-11</span>Context as a Service</li>
+            <li><span>2026-01 → 04</span>Borrowed from the memory track</li>
+            <li class="soon"><span>forthcoming</span>Context Switch Engine</li>
+            <li><span>2026-07-16</span>Context Lifecycle Engine</li>
+            <li><span>2026-07-17</span>Build, Ship, Run</li>
+            <li><span>2026-09-06</span>The cost of trusting AUC</li>
+          </ol>
+          <span class="go">Watch the architecture evolve</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How the systems work</p>
+          <h2>Follow the flow, step by step</h2>
+        </div>
+        <div class="tracks">
+          <a class="track mem" href="/research/urithi">
+            <p class="eyebrow">Urithi, in progress</p>
+            <h2>A rule from the guardian’s voice, a question from the learner</h2>
+            <p class="muted">Evidence, working memory, the debrief, the teach-back, the library, the anonymous question box, the signed offline package.</p>
+            <span class="go">Two flows, animated</span>
+          </a>
+          <a class="track ctx" href="/research/cle">
+            <p class="eyebrow">Context Lifecycle Engine</p>
+            <h2>A Monday habit becomes an agent</h2>
+            <p class="muted">Detect, build, run, promote on evidence, and demote when the model drifts.</p>
+            <span class="go">Twenty steps, animated</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section series">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The series</p>
+          <h2>Every article, in order</h2>
+        </div>
+        <ul class="rows">
+          <li><a href="https://ezekiasb.medium.com/context-cascade-architecture-cca-a-new-paradigm-for-context-management-in-chatbots-526d879979bb"><time datetime="2025-04-01">2025-04-01</time><span class="part">Prologue</span><h3>Context Cascade Architecture</h3><span class="pill mem">memory</span><p>Three levels of memory in cascade, and blocks searched on their metadata. Three articles the same day.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030"><time datetime="2025-08-11">2025-08-11</time><span class="part">Part 1</span><h3>Context as a Service</h3><span class="pill ctx">context</span><p>Agents as assemblies of versioned, tested blocks, promoted from dev to prod.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/user-centric-context-engineering-bridging-the-gap-between-algorithmic-optimisation-and-user-cc01e1eba25a"><time datetime="2026-01-20">2026-01-20</time><span class="part">Part 2</span><h3>User-Centric Context Engineering</h3><span class="pill mem">memory</span><p>Opaque, user-controlled, hybrid: context as a product feature.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/ux-driven-agent-memory-when-humans-decide-what-ai-is-allowed-to-know-ef9d293e6fe4"><time datetime="2026-03-15">2026-03-15</time><span class="part">Part 3</span><h3>UX-Driven Agent Memory</h3><span class="pill mem">memory</span><p>The Living DLL and the Bidirectional Metadata Jump.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/agent-os-what-von-neumann-knew-that-your-llm-doesnt-4177b563f493"><time datetime="2026-04-12">2026-04-12</time><span class="part">Part 4</span><h3>Agent OS: what von Neumann knew</h3><span class="pill mem">memory</span><p>Layers, not bigger registers, and a human interrupt.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/from-agent-os-to-agent-processor-unit-cdd797fb6287"><time datetime="2026-04-17">2026-04-17</time><span class="part">Part 5</span><h3>From Agent OS to Agent Processor Unit</h3><span class="pill mem">memory</span><p>A four-tier hierarchy, LRU paging and a priority scheduler. 78% L1 hit rate.</p></a></li>
+          <li><a href="/research/context"><time>forthcoming</time><span class="part">Part 6</span><h3>Context Switch Engine</h3><span class="pill ctx">context</span><p>A Merkle store of context states, and a switch that loads only the diff. In preparation.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/context-lifecycle-engine-when-the-agentic-system-detects-creates-and-retires-its-own-agents-bdfffce2e2ca"><time datetime="2026-07-16">2026-07-16</time><span class="part">Part 7</span><h3>Context Lifecycle Engine</h3><span class="pill ctx">context</span><p>The system detects, creates and retires its own agents from how you use it.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/context-lifecycle-engine-build-ship-and-run-your-synthesised-agents-anywhere-33be1d151426"><time datetime="2026-07-17">2026-07-17</time><span class="part">Part 8</span><h3>Build, Ship, and Run Your Synthesised Agents</h3><span class="pill ctx">context</span><p>Build, images, containers, volumes, and topology.yaml.</p></a></li>
+          <li><a href="https://ezekiasb.medium.com/implementing-the-agent-processor-unit-a-tutor-that-runs-offline-d10b77803889"><time datetime="2026-08-16">2026-08-16</time><span class="part">Implementation</span><h3>Implementing the APU: a tutor that runs offline</h3><span class="pill mem">memory</span><p>Akili on salvaged hardware. The local tiers are 0.9% of the turn.</p></a></li>
+          <li><a href="https://medium.com/google-cloud/context-lifecycle-engine-bigquery-gemini-embeddings-and-the-cost-of-trusting-auc-53237b806b9c"><time datetime="2026-09-06">2026-09-06</time><span class="part">Measurement</span><h3>BigQuery, Gemini embeddings, and the cost of trusting AUC</h3><span class="pill ctx">context</span><p>At a 1% error budget the free baseline goes from last to first.</p></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Read in order</p>
+          <h2>What the series rediscovers</h2>
+          <p class="lede">It does not only move forward. It comes back to its own ideas, sometimes loses them, and finds them again by measuring.</p>
+        </div>
+        <div class="returns">
+          <article class="return">
+            <span class="span">April 2025 → April 2026</span>
+            <h3>The prologue already held the hierarchy</h3>
+            <p>Context Cascade’s four levels, queried one after another, are a cache hierarchy. They get the vocabulary a year later with the APU, and the metadata search becomes BMJ.</p>
+          </article>
+          <article class="return">
+            <span class="span">April → August → October 2026</span>
+            <h3>The user never waits for memory</h3>
+            <p>Set by Agent OS and the APU scheduler. Lost in the Akili rewrite, where extraction takes a third of the turn. Found again by measurement, then priced at 34.6% of perceived latency. Still an open decision.</p>
+          </article>
+          <article class="return">
+            <span class="span">January → October 2026</span>
+            <h3>Urithi returns to UCCE</h3>
+            <p>Memory scoped to a context, a source for every fact, memory the person can see: all of it was in User-Centric Context Engineering. TencentDB Agent Memory was a reminder, not a source.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Method</p>
+          <h2>Proved, not claimed</h2>
+        </div>
+        <div class="method">
+          <div><b>Theory first</b><p>The architecture is published before the code, to be defended before anyone is attached to it.</p></div>
+          <div><b>Code the next day</b><p>Article on 15 March, repository on 16 March. Article on 17 July, repository on 18 July.</p></div>
+          <div><b>Every number measured</b><p>On the real implementation, with its date, commit and model, and the command that reproduces it.</p></div>
+          <div><b>Say what it doesn’t show</b><p>Each measurement article ends on its limits. The tests carry hundreds of deliberate defects they must catch.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
+      <ul>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

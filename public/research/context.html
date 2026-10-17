@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI agent lifecycle, from Context as a Service to the CLE | Ezekias Bokove</title>
+  <meta name="description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
+  <meta name="author" content="Ezekias Bokove">
+  <link rel="canonical" href="https://ezekias.dev/research/context">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="AI agent lifecycle, from Context as a Service to the CLE">
+  <meta property="og:description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
+  <meta property="og:url" content="https://ezekias.dev/research/context">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/context.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
+  <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="AI agent lifecycle, from Context as a Service to the CLE">
+  <meta name="twitter:description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/context.png">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ezekias.dev/research/context#webpage",
+   "url": "https://ezekias.dev/research/context",
+   "name": "AI agent lifecycle, from Context as a Service to the CLE | Ezekias Bokove",
+   "description": "How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/context.png",
+   "headline": "AI agent lifecycle, from Context as a Service to the CLE",
+   "author": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "datePublished": "2026-10-17",
+   "dateModified": "2026-10-17",
+   "image": "https://ezekias.dev/assets/og/context.png",
+   "mainEntityOfPage": "https://ezekias.dev/research/context",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI agent lifecycle"
+    },
+    {
+     "@type": "Thing",
+     "name": "Multi-agent systems"
+    },
+    {
+     "@type": "Thing",
+     "name": "Context engineering"
+    }
+   ],
+   "citation": [
+    "https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030",
+    "https://medium.com/google-cloud/context-lifecycle-engine-when-the-agentic-system-detects-creates-and-retires-its-own-agents-bdfffce2e2ca",
+    "https://medium.com/google-cloud/context-lifecycle-engine-build-ship-and-run-your-synthesised-agents-anywhere-33be1d151426",
+    "https://medium.com/google-cloud/context-lifecycle-engine-bigquery-gemini-embeddings-and-the-cost-of-trusting-auc-53237b806b9c"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Context",
+     "item": "https://ezekias.dev/research/context"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site/site.css?v=631c539d">
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js?v=5e7860f8" defer></script>
+  <style>
+    .page-hero { padding-block: 3.5rem 2.5rem; display: grid; gap: 1.1rem; }
+    .page-hero h1 em { color: var(--teal); }
+    .crumbs { font-family: var(--mono); font-size: 0.88rem; color: var(--muted); }
+    .crumbs a { color: var(--muted); }
+    .story-wrap { padding-bottom: 4rem; }
+    .next-track { border-top: 1px solid var(--rule); padding-block: 3rem 4rem; display: grid; gap: 0.75rem; }
+    .next-track a.big { font-family: var(--display); font-stretch: 112%; font-weight: 720; font-size: clamp(1.4rem, 1rem + 1.6vw, 2rem); text-decoration: none; }
+    .next-track a.big:hover { color: var(--copper); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><b>Ezekias Bokove</b><span>Agent Processor Unit</span></a>
+      <ul class="nav" id="site-nav">
+        <li><a href="/research" aria-current="page">Research</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="systems-menu">Systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="sub" id="systems-menu">
+            <li><a href="/research/urithi"><b>Urithi</b><span>how knowledge moves</span></a></li>
+            <li><a href="/research/cle"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
+          </ul>
+        </li>
+        <li><a href="/#writing">Writing</a></li>
+        <li><a href="/#speaking">Speaking</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="page-hero narrow">
+      <p class="crumbs"><a href="/research">Research</a> / Context track</p>
+      <h1>How agents are <em>born, promoted and retired</em></h1>
+      <p class="lede">Six stages, from a platform where developers assemble versioned blocks to an engine that grows each user’s agents from their usage and retires them on evidence. Scroll, or press play: watch who authors the agent, what gets versioned, and what decides a promotion.</p>
+    </section>
+
+    <div class="story story-wrap">
+      <ol class="steps-list" data-track="ctx">
+        <li>
+          <article class="step" data-step="0">
+            <p class="step-meta"><span class="part">Part 1</span><time datetime="2025-08-11">2025-08-11</time><span class="pill">theory</span></p>
+            <h3>Context as a Service</h3>
+            <p>A second question: maintaining one agent is feasible, maintaining a hundred is not. The answer is to stop writing agents as monoliths.</p>
+            <ul class="diff">
+              <li class="add">The Context Block: declarative and immutably versioned, holding a model, tools, a memory scope, logic, and its own evals.</li>
+              <li class="add">Application, environments, blocks, with consistency tests between the blocks of an environment.</li>
+              <li class="add">Two levels of versions, block semver and an application snapshot. Promotion from dev to stage to prod, with atomic rollback.</li>
+              <li class="add">Definition on the platform, invocation in code: a new prompt ships without a redeploy.</li>
+              <li class="opt">Point the code at a floating <code>latest</code>, or pin an immutable version.</li>
+              <li class="opt">Any model provider: the block holds a pointer, not a dependency.</li>
+            </ul>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030">Article (EN)</a>
+              <a href="https://ezekiasb.medium.com/context-as-a-service-larchitecture-modulaire-pour-l-%C3%A8re-des-agents-ia-d11dc0070429">Article (FR)</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="1">
+            <p class="step-meta"><span class="part">Parts 2–5</span><time datetime="2026-01">2026-01 → 04</time><span class="pill">from the memory track</span></p>
+            <h3>Borrowed from the memory track</h3>
+            <p>Part 7 lists what each earlier article contributed. Three pieces cross over from memory to lifecycle.</p>
+            <ul class="diff">
+              <li class="add">From User-Centric Context Engineering, the trust model: write optimistically, let a human correct afterwards.</li>
+              <li class="add">From UX-Driven Agent Memory, a law: typed blocks earn permanence through use, from temp to project to fundamental.</li>
+              <li class="add">From Agent OS, the Force Override: a human can always interrupt.</li>
+              <li class="add">From the APU, a measured baseline: 78% of queries served by L1.</li>
+            </ul>
+            <p class="step-links"><a href="/research/memory">The memory track</a></p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="2">
+            <p class="step-meta"><span class="part">Part 6</span><span>forthcoming</span><span class="pill">draft</span></p>
+            <h3>Context Switch Engine</h3>
+            <p>The link between switching contexts and creating them. The article is still being written, but parts 7 and 8 already build on it.</p>
+            <ul class="diff">
+              <li class="add">A Merkle DAG context store: every context state is a commit of content-addressed blocks, and a switch loads only the diff.</li>
+              <li class="add">A rupture detector that cuts a conversation into episodes, later reused by the CLE.</li>
+            </ul>
+            <p class="muted">Described from parts 7 and 8 until it is published.</p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="3">
+            <p class="step-meta"><span class="part">Part 7</span><time datetime="2026-07-16">2026-07-16</time><span class="pill">theory</span></p>
+            <h3>Context Lifecycle Engine</h3>
+            <p>Every multi-agent system fixes its topology at design time, for every user, forever. The CLE lets it grow from each user’s usage instead.</p>
+            <ul class="diff">
+              <li class="del">The developer assembling blocks. A synthesiser composes candidates from a library of hashed, already-evaluated components.</li>
+              <li class="del">Environments as the promotion path. Seven states replace them, from pattern to pinned, then deprecated, archived, and resurrected.</li>
+              <li class="add">A signal that needs no prediction: iterations before a result. Reformulation triggers a repair, recurrence an automation.</li>
+              <li class="add">Evidence required on every upward transition, and an abandonment guard: a user who gives up is not a success.</li>
+              <li class="chg">The Force Override becomes a maternity ward: a human approves every birth.</li>
+              <li class="opt">Auto-approving candidates built only from pinned components: possible later, out of scope for v1.</li>
+            </ul>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/context-lifecycle-engine-when-the-agentic-system-detects-creates-and-retires-its-own-agents-bdfffce2e2ca">Article</a>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="4">
+            <p class="step-meta"><span class="part">Part 8</span><time datetime="2026-07-17">2026-07-17</time><span class="pill">theory + code</span></p>
+            <h3>Build, Ship, Run</h3>
+            <p>Reread the next day, part 7’s YAML was a Dockerfile. Docker is not the model: it shares the same ancestors, and gives a vocabulary everyone already holds.</p>
+            <ul class="diff">
+              <li class="add">A build step: resolve every reference, run the components’ evals, assemble and hash. Definition errors fail before any user sees them.</li>
+              <li class="chg">The YAML and the image become two objects with two hashes. Lifecycle tags attach to images.</li>
+              <li class="add">Image and containers: metrics per container, decisions per image. Volumes hold the state, and the agent cannot read its own scores.</li>
+              <li class="add"><code>topology.yaml</code>, written by the CLE and audited by humans. Governance is <code>git log topology.yaml</code>.</li>
+              <li class="rej">A trigger adjustable at runtime. Rejected: the trigger is the agent’s identity.</li>
+              <li class="rej">Namespaces, cgroups, Docker networking. Not taken: the analogy is structural, not a security claim.</li>
+            </ul>
+            <p class="quote">Architectures are mines, not templates.</p>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/context-lifecycle-engine-build-ship-and-run-your-synthesised-agents-anywhere-33be1d151426">Article</a>
+              <a href="/research/cle">How the CLE works, step by step</a>
+              <a href="https://github.com/EZFRICA/context-lifecycle-engine">EZFRICA/context-lifecycle-engine</a>
+              <span class="muted">code the next day</span>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article class="step" data-step="5">
+            <p class="step-meta"><span class="part">Measurement</span><time datetime="2026-09-06">2026-09-06</time><span class="pill">measurement</span></p>
+            <h3>The cost of trusting AUC</h3>
+            <p>The measurements part 8 promised, on pairs humans had already judged: Stack Overflow questions closed as duplicates by moderators.</p>
+            <div class="measured"><ul>
+              <li>at 10.1% false positives, gemini-embedding-001 leads (73.9%) and free word overlap is last (62.2%)</li>
+              <li>at 1%, the order inverts: word overlap first (27.0%), Gemini fourth (23.1%)</li>
+              <li>intents grouped like the moderators: 32 of 48, against ~2% at random</li>
+              <li>local MiniLM within 6.7 points of the best hosted model</li>
+              <li>gemini-embedding-001 against -2 on the same texts: cosine 0.04</li>
+            </ul></div>
+            <ul class="diff">
+              <li class="add">A norm guard at the boundary that refuses a vector from a foreign embedding space instead of normalising it.</li>
+              <li class="rej">A dedicated vector database. Not justified: exhaustive search stays under 3 s at a million vectors.</li>
+              <li class="opt">BigQuery for measurement only. The engine and its tests never touch it.</li>
+            </ul>
+            <p class="quote">Benchmark your operating point, not your model.</p>
+            <p class="step-links">
+              <a href="https://medium.com/google-cloud/context-lifecycle-engine-bigquery-gemini-embeddings-and-the-cost-of-trusting-auc-53237b806b9c">Article</a>
+            </p>
+          </article>
+        </li>
+      </ol>
+
+      <div class="story-stage">
+        <div id="player" tabindex="-1"></div>
+      </div>
+    </div>
+
+    <section class="next-track">
+      <p class="eyebrow">The other half of the series</p>
+      <a class="big" href="/research/memory">What an agent is allowed to know</a>
+      <p class="muted">From Context Cascade Architecture to Urithi.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
+      <ul>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/assets/site/data-context.js?v=28b331c1" defer></script>
+  <script src="/assets/site/arch.js?v=d0a09120" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new ArchPlayer(document.getElementById('player'), window.ARCH_CONTEXT, { steps: document.querySelectorAll('.step') });
+    });
+  </script>
+</body>
+</html>
