@@ -1,0 +1,100 @@
+/* Flow player as a chip die. The die is the one bold surface of the site: a dark substrate in
+   both themes, graphite blocks with pads, faint orthogonal traces, and probe blue for the live signal. */
+.flow {
+  --die-bg: #0D0F12;
+  --die-dot: rgba(255, 255, 255, 0.07);
+  --die-zone: rgba(255, 255, 255, 0.10);
+  --die-block: #15181D;
+  --die-edge: #2B3038;
+  --die-pad: #3A404A;
+  --die-text: #D7DBE1;
+  --die-dim: #7D848E;
+  --die-trace: rgba(255, 255, 255, 0.09);
+  --die-done: #2F4FA8;
+  --die-live: #6F93FF;
+  --die-stop: #F07A63;
+  background: var(--die-bg); color: var(--die-text);
+  border-radius: 14px; padding: 1.1rem 1.2rem; display: grid; gap: 0.8rem;
+}
+.flow-head { display: grid; gap: 0.25rem; min-height: 2.6rem; }
+.flow-head .k { font-family: var(--display); font-size: 0.85rem; color: var(--die-dim); }
+.flow-head .t { font-family: var(--display); font-weight: 600; font-size: 1.05rem; line-height: 1.3; color: #fff; }
+
+.flow-map { position: relative; width: 100%; }
+.die { display: block; width: 100%; height: auto; font-family: var(--display); }
+.die-substrate { fill: var(--die-bg); }
+.die-dot { fill: var(--die-dot); }
+.die-zone { fill: none; stroke: var(--die-zone); stroke-width: 1; stroke-dasharray: 2 4; }
+.die-zone-label { fill: var(--die-dim); font-size: 11px; letter-spacing: 0.02em; }
+
+.die-trace { fill: none; stroke: var(--die-trace); stroke-width: 1.4; stroke-linejoin: round; transition: stroke 0.4s; }
+.die-trace.is-done { stroke: var(--die-done); }
+.die-trace.is-live { stroke: var(--die-live); stroke-width: 2; stroke-dasharray: 6 5; animation: die-flow 0.9s linear infinite; }
+@keyframes die-flow { to { stroke-dashoffset: -11; } }
+
+.die-pad { fill: var(--die-pad); transition: fill 0.3s; }
+.die-body { fill: var(--die-block); stroke: var(--die-edge); stroke-width: 1; transition: fill 0.35s, stroke 0.35s; }
+.die-label { fill: var(--die-dim); font-size: 14px; font-weight: 600; transition: fill 0.35s; }
+.die-sub { fill: var(--die-dim); font-size: 10.5px; opacity: 0.8; }
+.die-block.is-seen .die-body { stroke: var(--die-done); }
+.die-block.is-seen .die-label { fill: var(--die-text); }
+.die-block.is-seen .die-pad { fill: var(--die-done); }
+.die-block.is-here .die-body { fill: #172347; stroke: var(--die-live); stroke-width: 1.5; }
+.die-block.is-here .die-label { fill: #fff; }
+.die-block.is-here .die-sub { fill: #B9C8FF; opacity: 1; }
+.die-block.is-here .die-pad { fill: var(--die-live); }
+.die-block.is-stop .die-body { stroke: var(--die-stop); fill: #3A1C17; }
+.die-block.is-stop .die-pad { fill: var(--die-stop); }
+
+.die-pulse { fill: #fff; opacity: 0; }
+.die-tag { opacity: 0; transition: opacity 0.25s; pointer-events: none; }
+.die-tag rect { fill: #fff; }
+.die-tag text { fill: #0D0F12; font-size: 10.5px; font-weight: 600; }
+
+.flow .arch-btn { color: #fff; border-color: rgba(255, 255, 255, 0.18); }
+.flow .arch-btn:hover { border-color: #fff; }
+.flow-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; }
+.flow-count { font-family: var(--display); font-size: 0.85rem; color: var(--die-dim); font-variant-numeric: tabular-nums; }
+
+/* Full-screen variant: a full-bleed dark stage; the die takes the width, the step reads in a band below */
+body:has(.story--full) { overflow-x: clip; }
+.flow-mapwrap { min-width: 0; }
+.story--full { display: block; position: relative; }
+.story--full .story-stage {
+  position: sticky; top: var(--header-h); z-index: 5;
+  height: calc(100vh - var(--header-h)); height: calc(100dvh - var(--header-h));
+  margin-inline: calc(50% - 50vw); padding: 0; background: #0D0F12; border: 0;
+}
+.flow--full {
+  height: 100%; max-width: 120rem; margin-inline: auto; border-radius: 0;
+  padding: 1.25rem max(16px, 2.5vw) 0.9rem;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  grid-template-areas: "map" "cap" "foot";
+  row-gap: 0.9rem;
+}
+.flow--full .flow-head { display: none; }
+.flow--full .flow-mapwrap { grid-area: map; min-height: 0; container-type: size; display: grid; place-items: center; }
+.flow--full .flow-map { width: min(100cqw, calc(100cqh * var(--ar))); }
+.flow--full .flow-foot { grid-area: foot; }
+.flow-caption {
+  grid-area: cap; display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); column-gap: 2.5rem; row-gap: 0.25rem;
+  align-items: start; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 0.9rem; min-height: 6.5rem;
+}
+.flow-caption .tag { grid-column: 1; font-family: var(--display); font-size: 0.9rem; color: var(--die-live); }
+.flow-caption h3 { grid-column: 1; font-size: 1.45rem; color: #fff; }
+.flow-caption p:not(.tag) { grid-column: 2; grid-row: 1 / span 3; color: var(--die-text); max-width: 48rem; font-size: 1.05rem; }
+.flow-caption code { color: #fff; }
+.story--full .steps-list { position: relative; z-index: 1; margin-top: calc(-1 * (100vh - var(--header-h))); }
+.story--full .step { min-height: 62vh; opacity: 0; pointer-events: none; border: 0; }
+.story--full .steps-list li:last-child .step { min-height: 100vh; }
+@media (max-width: 900px) {
+  .flow { padding: 0.8rem; border-radius: 10px; }
+  .flow--full { padding: 0.75rem var(--gutter-r) 0.75rem var(--gutter); }
+  .flow--full .flow-mapwrap { container-type: normal; display: block; align-self: center; overflow-x: auto; scrollbar-width: none; }
+  .flow--full .flow-mapwrap::-webkit-scrollbar { display: none; }
+  .flow--full .flow-map { width: 760px; }
+  .flow-caption { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 0.6rem; }
+  .flow-caption p:not(.tag) { grid-column: 1; grid-row: auto; font-size: 0.92rem; }
+  .flow-caption h3 { font-size: 1.05rem; }
+}
