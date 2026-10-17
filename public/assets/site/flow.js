@@ -192,8 +192,8 @@
           g.classList.toggle('is-seen', !here && seen.has(id));
           g.querySelector('.die-body').setAttribute('filter', here ? this.glow : 'none');
         });
-        this.placeTag(st.at, st.token);
-        this.follow(st.at);
+        // measure text and scroll positions on the next frame, after styles settle (no forced reflow)
+        requestAnimationFrame(() => { this.placeTag(st.at, st.token); this.follow(st.at); });
       };
       Object.values(this.nodes).forEach((g) => g.classList.remove('is-here'));
       this.tag.style.opacity = 0;

@@ -138,12 +138,10 @@
 }
   </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site/site.css">
-  <link rel="stylesheet" href="/assets/site/arch.css">
-  <link rel="stylesheet" href="/assets/site/flow.css">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site/site.css?v=631c539d">
   <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-  <script src="/assets/site/site.js" defer></script>
+  <script src="/assets/site/site.js?v=5e7860f8" defer></script>
   <style>
     .page-hero { padding-block: 3.5rem 2.5rem; display: grid; gap: 1.1rem; }
     .crumbs { font-family: var(--mono); font-size: 0.88rem; color: var(--muted); }
@@ -287,12 +285,14 @@
     </div>
   </footer>
 
-  <script src="/assets/site/data-urithi.js"></script>
-  <script src="/assets/site/flow.js"></script>
+  <script src="/assets/site/data-urithi.js?v=0c681c9d" defer></script>
+  <script src="/assets/site/flow.js?v=ff9168ff" defer></script>
   <script>
-    const sections = document.querySelectorAll('.flow-section .story');
-    new FlowPlayer(document.getElementById('flow-teach'), window.URITHI_MAP, window.URITHI_TEACH, { steps: sections[0].querySelectorAll('.step'), full: true });
-    new FlowPlayer(document.getElementById('flow-learn'), window.URITHI_MAP, window.URITHI_LEARN, { steps: sections[1].querySelectorAll('.step'), full: true });
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.flow-section .story');
+      new FlowPlayer(document.getElementById('flow-teach'), window.URITHI_MAP, window.URITHI_TEACH, { steps: sections[0].querySelectorAll('.step'), full: true });
+      new FlowPlayer(document.getElementById('flow-learn'), window.URITHI_MAP, window.URITHI_LEARN, { steps: sections[1].querySelectorAll('.step'), full: true });
+    });
   </script>
 </body>
 </html>
