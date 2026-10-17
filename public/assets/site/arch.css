@@ -147,3 +147,7 @@
   .story-stage .arch-grid { grid-template-rows: repeat(var(--rows, 6), minmax(2.3rem, auto)); }
   .step { min-height: 58vh; }
 }
+
+/* Reserve the player's space before the script draws it, so nothing below shifts. */
+.story-stage > div:empty { min-height: 38rem; }
+@media (max-width: 900px) { .story-stage > div:empty { min-height: 25rem; } }

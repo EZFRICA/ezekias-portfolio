@@ -98,3 +98,6 @@ body:has(.story--full) { overflow-x: clip; }
   .flow-caption p:not(.tag) { grid-column: 1; grid-row: auto; font-size: 0.92rem; }
   .flow-caption h3 { font-size: 1.05rem; }
 }
+
+/* Reserve the home die's space before the script draws it. */
+#apu-die:empty { aspect-ratio: 692 / 380; }
