@@ -98,7 +98,7 @@
           <article class="step" data-step="2">
             <p class="step-meta"><span class="part">Part 6</span><span>forthcoming</span><span class="pill">draft</span></p>
             <h3>Context Switch Engine</h3>
-            <p>The link between switching contexts and creating them. The article is still being written; parts 7 and 8 already build on it.</p>
+            <p>The link between switching contexts and creating them. The article is still being written, but parts 7 and 8 already build on it.</p>
             <ul class="diff">
               <li class="add">A Merkle DAG context store: every context state is a commit of content-addressed blocks, and a switch loads only the diff.</li>
               <li class="add">A rupture detector that cuts a conversation into episodes, later reused by the CLE.</li>
@@ -161,7 +161,7 @@
             <ul class="diff">
               <li class="add">A norm guard at the boundary that refuses a vector from a foreign embedding space instead of normalising it.</li>
               <li class="rej">A dedicated vector database. Not justified: exhaustive search stays under 3 s at a million vectors.</li>
-              <li class="opt">BigQuery for measurement only; the engine and its tests never touch it.</li>
+              <li class="opt">BigQuery for measurement only. The engine and its tests never touch it.</li>
             </ul>
             <p class="quote">Benchmark your operating point, not your model.</p>
             <p class="step-links">

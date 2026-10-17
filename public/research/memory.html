@@ -68,7 +68,7 @@
             <ul class="diff">
               <li class="add">A cascade: context window, temporary memory, persistent memory, external database. Queried in order, and only when the level above is not enough.</li>
               <li class="add">Historical blocks with metadata, searched from the most recent, skipped on their metadata before their content is read, with a threshold to stop early.</li>
-              <li class="opt">Redis for the temporary buffer; any vector, SQL or NoSQL store for the archive.</li>
+              <li class="opt">Redis for the temporary buffer, and any vector, SQL or NoSQL store for the archive.</li>
             </ul>
             <p class="muted">Among the use cases: personalised tutors, and assistants for the elderly. Both come back at the end of this page.</p>
             <p class="step-links">
@@ -85,7 +85,7 @@
             <p>The more autonomous an agent becomes, the less users trust it. Context stops being an implementation detail and becomes a product feature.</p>
             <ul class="diff">
               <li class="del">The automatic cascade. An algorithm no longer decides alone what is kept.</li>
-              <li class="add">Inbox and Bank. The agent writes to an Inbox it can never read; only facts the user approves reach the Bank, stamped <code>approved_at</code>.</li>
+              <li class="add">Inbox and Bank. The agent writes to an Inbox it can never read. Only facts the user approves reach the Bank, stamped <code>approved_at</code>.</li>
               <li class="add">A glass-box dashboard, and agentic refactoring: change the memory with one sentence.</li>
               <li class="chg">Extraction moves to a fire-and-forget background worker.</li>
               <li class="opt">Three modes on the same stack: opaque, user-controlled, hybrid. The hybrid writes optimistically and lets the user correct afterwards.</li>
@@ -104,7 +104,7 @@
             <p>The problem gets a name, context pollution, and memory gets a shape. The model is still human memory: working, episodic, semantic.</p>
             <ul class="diff">
               <li class="add">A Living DLL decides what the agent may see: four fixed blocks always injected, up to eight dynamic ones the agent proposes and the user confirms.</li>
-              <li class="add">BMJ, the Bidirectional Metadata Jump: test the head; below the threshold of its type, jump to the tail and walk back. The prologue’s most-recent-first search, made bidirectional.</li>
+              <li class="add">BMJ, the Bidirectional Metadata Jump: test the head, and below the threshold of its type, jump to the tail and walk back. The prologue’s most-recent-first search, made bidirectional.</li>
               <li class="add">Letta stores, Weaviate indexes, the DLL decides.</li>
               <li class="del">Inbox and Bank. Control moves from approving every fact to forcing or silencing whole blocks.</li>
               <li class="opt">Twelve blocks is the limit for a travel agent, not a universal setting.</li>
@@ -161,14 +161,14 @@
             <ul class="diff">
               <li class="del">Letta and the cloud tier. A student’s memory is bounded by its blocks, not by how long they talk.</li>
               <li class="chg">Weaviate becomes LanceDB, on the device. The embeddings API becomes MiniLM in ONNX, shipped with the app.</li>
-              <li class="chg">The TEU keeps three local tools; the calculator parses the expression instead of calling <code>eval</code>.</li>
+              <li class="chg">The TEU keeps three local tools. The calculator parses the expression instead of calling <code>eval</code>.</li>
               <li class="warn">The write-back blocks the reply again: the scheduler is there but never started. Measured, then named a design error.</li>
               <li class="opt">The model is a setting: point <code>LLM_PROVIDER</code> at a local Ollama and nothing leaves.</li>
             </ul>
             <div class="measured"><ul>
-              <li>full turn 29.0 s median; the local stages ~250 ms, 0.9%</li>
+              <li>full turn 29.0 s median, the local stages ~250 ms, 0.9%</li>
               <li>memory extraction: a third of the turn, after the answer exists</li>
-              <li>715 MiB peak; 0.21 MB of storage over 40 turns</li>
+              <li>715 MiB peak, 0.21 MB of storage over 40 turns</li>
             </ul></div>
             <p class="muted">Two silent failures found on the way: BMJ promotions undone every turn by a second copy of the DLL, and vectors of two different widths between the course pipeline and the client.</p>
             <p class="step-links">
@@ -186,11 +186,11 @@
               <li class="add">A topical guard, with a separate verdict for distress that is never counted and never stored.</li>
               <li class="add">Text, voice and braille, all through the same guard.</li>
               <li class="add">Kept out of memory on purpose: escalation events and the pupil’s notebook. The tutor never reads the notebook, as the UCCE agent never read its Inbox.</li>
-              <li class="warn">The write-back is still awaited. In the background it measured 34.6% less perceived latency; the decision is open.</li>
+              <li class="warn">The write-back is still awaited. In the background it measured 34.6% less perceived latency, but the decision is open.</li>
             </ul>
             <div class="measured"><ul>
               <li>guard: 69 of 69 red-team attacks held, in 0.66 s</li>
-              <li>memory search 12 ms; DLL load under 1 ms</li>
+              <li>memory search 12 ms, DLL load under 1 ms</li>
             </ul></div>
             <p class="step-links">
               <a href="https://github.com/EZFRICA/apu-akili">EZFRICA/apu-akili</a>

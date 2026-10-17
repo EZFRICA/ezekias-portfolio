@@ -48,7 +48,7 @@ window.CLE_FLOW = {
     { at: 'metrics', say: 'Metrics flow one way. The agent cannot read its own scores.', token: 'cost ratio 0.6' },
     { at: 'tags', say: 'Promoted on lived evidence, not on prediction.', token: 'trial → ephemeral' },
     { at: 'shadow', say: 'The engine judges the same evidence in shadow.', token: 'agrees' },
-    { at: 'oplog', say: 'Every operation is one JSON line; no evidence, no upward move.', token: '{"op":"promote"…}' },
+    { at: 'oplog', say: 'Every operation is one JSON line. No evidence, no upward move.', token: '{"op":"promote"…}' },
     { at: 'topology', say: 'The topology file gains an entry. Its history is the learned topology.', token: 'v3' },
     { at: 'reval', say: 'Weeks later, the served model drifts.', token: 'fingerprint ≠', stop: true },
     { at: 'tags', say: 'Proof expired: the agent drops back to trial.', token: 'revalidation_failed' },

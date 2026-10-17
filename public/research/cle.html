@@ -79,7 +79,7 @@
       <li><b>Failed builds consume nothing</b><p>A failed resolve, replay or assemble leaves the store byte-identical.</p></li>
       <li><b>One JSON line per operation</b><p>With a mandatory evidence field on any upward move. No log, no merge.</p></li>
       <li><b>Replay proves the trigger, never the answer</b><p>Replay outputs are pre-evidence and can never flow into a promotion.</p></li>
-      <li><b>Proof expires</b><p>Images freeze a model fingerprint; when the served model drifts, the agent is demoted.</p></li>
+      <li><b>Proof expires</b><p>Images freeze a model fingerprint. When the served model drifts, the agent is demoted.</p></li>
     </ol>
 
     <section class="flow-section" aria-labelledby="flow">
@@ -97,17 +97,17 @@
           <li><article class="step" data-step="4"><p class="tag">Detect, stability</p><h3>A check that admits what it cannot see</h3><p>An unstable cluster yields no candidate. When the check cannot run in this vector space it says <code>unavailable</code>, and the candidate is born carrying that gap for the human to see.</p></article></li>
           <li><article class="step" data-step="5"><p class="tag">Build, candidate</p><h3>A YAML of references</h3><p>No new logic: every tool, memory scope, prompt fragment and model is a hash into a library of already-evaluated components, plus a provenance block that answers “why do you exist?”.</p></article></li>
           <li><article class="step" data-step="6"><p class="tag">Build, gate</p><h3>A human approves the birth</h3><p>Synthesis is optimistic, activation is gated. A rejected candidate stays in the store as a documented experiment.</p></article></li>
-          <li><article class="step" data-step="7"><p class="tag">Build, resolve</p><h3>Every reference must exist</h3><p>A missing hash fails the build in milliseconds and consumes nothing. Declared tools must be tools; a trigger’s required capability must be mounted.</p></article></li>
+          <li><article class="step" data-step="7"><p class="tag">Build, resolve</p><h3>Every reference must exist</h3><p>A missing hash fails the build in milliseconds and consumes nothing. Declared tools must be tools, and a trigger’s required capability must be mounted.</p></article></li>
           <li><article class="step" data-step="8"><p class="tag">Build, replay</p><h3>Validated on the user’s own past</h3><p>Replay measures how many of the cluster’s episodes the trigger would have caught, how much other traffic it would have stolen, and what the habit cost. It proves the trigger, never the answer.</p></article></li>
           <li><article class="step" data-step="9"><p class="tag">Build, assemble</p><h3>Compiled and fingerprinted</h3><p>The prompt is compiled in declared order and the served model’s fingerprint is frozen into the artifact.</p></article></li>
           <li><article class="step" data-step="10"><p class="tag">Run, image</p><h3>Two objects, two hashes</h3><p>The image is hashed as a whole. Its trigger, the intent centroid and its period, is baked in: if the habit drifts, a new version is built.</p></article></li>
           <li><article class="step" data-step="11"><p class="tag">Run, containers</p><h3>One image, many lives</h3><p>Each workspace runs its own container of the same image.</p></article></li>
-          <li><article class="step" data-step="12"><p class="tag">Run, mounts</p><h3>The world is in the mounts</h3><p>Memory scopes read-only or read-write, MCP connections. The agent is cattle; its volumes are the pets.</p></article></li>
+          <li><article class="step" data-step="12"><p class="tag">Run, mounts</p><h3>The world is in the mounts</h3><p>Memory scopes read-only or read-write, MCP connections. The agent is cattle, and its volumes are the pets.</p></article></li>
           <li><article class="step" data-step="13"><p class="tag">Run, metrics</p><h3>Scores it cannot read</h3><p>Metrics are collected per container and written one way. An agent that could observe its promotion criteria could game them.</p></article></li>
           <li><article class="step" data-step="14"><p class="tag">Lifecycle, tags</p><h3>Promoted on lived evidence</h3><p>A human moves it to trial, then to ephemeral with real occurrences: cost ratio 0.6 over four Mondays, all closed as successes.</p></article></li>
           <li><article class="step" data-step="15"><p class="tag">Lifecycle, shadow</p><h3>The engine judges in shadow</h3><p>In v1 the state machine runs beside the human and logs what it would have done. The disagreements are the calibration set for turning it on.</p></article></li>
           <li><article class="step" data-step="16"><p class="tag">Governance, oplog</p><h3>Every move is a line</h3><p>One JSON line per operation. An upward move without an evidence field is refused.</p></article></li>
-          <li><article class="step" data-step="17"><p class="tag">Governance, topology</p><h3>The learned topology is a file</h3><p>Every change to <code>topology.yaml</code> is a commit. <code>cle log</code> shows who approved what, on which numbers; <code>cle diff</code> shows what usage grew.</p></article></li>
+          <li><article class="step" data-step="17"><p class="tag">Governance, topology</p><h3>The learned topology is a file</h3><p>Every change to <code>topology.yaml</code> is a commit. <code>cle log</code> shows who approved what, on which numbers, and <code>cle diff</code> shows what usage grew.</p></article></li>
           <li><article class="step" data-step="18"><p class="tag">Lifecycle, re-validator</p><h3>The model drifts</h3><p>The re-validator replays the image’s probe set against the served model. The fingerprint no longer matches.</p></article></li>
           <li><article class="step" data-step="19"><p class="tag">Lifecycle, tags</p><h3>Proof expires</h3><p>The agent drops back to trial and the oplog records <code>revalidation_failed</code>. It has to earn its standing again.</p></article></li>
         </ol>
