@@ -2,7 +2,6 @@
    Everything is drawn in graphite on paper, like a schematic. One colour, probe blue, marks what changes
    or what is active, and nothing else. Red appears only for what was removed, inside diagrams.
    Familjen Grotesk for headings, diagrams and interface; Literata for reading. */
-@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap");
 
 :root {
   --paper: #F4F5F1;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&display=swap">
+<link rel="stylesheet" href="/assets/site/site.css">
+<link rel="stylesheet" href="/assets/site/arch.css">
+<link rel="stylesheet" href="/assets/site/flow.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0D0F12; }
+  .card { width: 1200px; height: 630px; box-sizing: border-box; padding: 44px 60px 36px; display: grid; grid-template-rows: auto 1fr; gap: 22px; font-family: "Familjen Grotesk", sans-serif; }
+  .who { color: #7D848E; font-size: 22px; margin: 0 0 10px; }
+  h1 { color: #fff; font-size: 54px; line-height: 1.04; letter-spacing: -0.02em; margin: 0; font-weight: 640; max-width: 1000px; }
+  .sub { color: #B9C8FF; font-size: 24px; margin: 12px 0 0; }
+  .die-wrap { min-height: 0; display: grid; place-items: center; }
+  .flow { padding: 0; background: transparent; width: 100%; }
+  .flow-head, .flow-foot { display: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <p class="who">Ezekias Bokove · ezekias.dev</p>
+    <h1 id="t"></h1>
+    <p class="sub" id="s"></p>
+  </div>
+  <div class="die-wrap"><div id="die" style="width:100%"></div></div>
+</div>
+<script src="/assets/site/data-apu.js"></script>
+<script src="/assets/site/data-urithi.js"></script>
+<script src="/assets/site/data-cle.js"></script>
+<script src="/assets/site/flow.js"></script>
+<script>
+  const P = {
+    home: ['Agent Processor Unit', 'Memory for AI agents, run like a processor', 'APU_MAP', 'APU_FLOW', 4, 980],
+    research: ['AI agent memory research', 'Agent Processor Unit, Urithi, Context Lifecycle Engine', 'APU_MAP', 'APU_FLOW', 2, 980],
+    memory: ['How AI agent memory evolved', 'From Context Cascade to the Agent Processor Unit', 'APU_MAP', 'APU_FLOW', 5, 980],
+    context: ['How AI agents are born and retired', 'From Context as a Service to the Context Lifecycle Engine', 'CLE_MAP', 'CLE_FLOW', 10, 1080],
+    urithi: ['Urithi', 'How knowledge moves from an elder to a learner', 'URITHI_MAP', 'URITHI_TEACH', 5, 1000],
+    cle: ['Context Lifecycle Engine', 'How a habit becomes an AI agent', 'CLE_MAP', 'CLE_FLOW', 13, 1080],
+  };
+  const [title, sub, map, flow, step, width] = P[new URLSearchParams(location.search).get('p') || 'home'];
+  document.getElementById('t').textContent = title;
+  document.getElementById('s').textContent = sub;
+  document.getElementById('die').style.width = width + 'px';
+  const player = new FlowPlayer(document.getElementById('die'), window[map], window[flow], {});
+  player.go(step);
+</script>
+</body>
+</html>

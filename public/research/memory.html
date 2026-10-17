@@ -3,16 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Memory · Agent OS research · Ezekias Bokove</title>
-  <meta name="description" content="How an AI agent's memory architecture evolved, stage by stage, from Context Cascade Architecture (2025) to the Agent Processor Unit, Akili and Urithi: what was added, removed and rejected.">
+  <title>How AI agent memory evolved, from Context Cascade to the APU | Ezekias Bokove</title>
+  <meta name="description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
+  <meta name="author" content="Ezekias Bokove">
   <link rel="canonical" href="https://ezekias.dev/research/memory">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="What an agent is allowed to know · Agent OS research">
-  <meta property="og:description" content="The memory track of the Agent OS series, animated stage by stage.">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="How AI agent memory evolved, from Context Cascade to the APU">
+  <meta property="og:description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
   <meta property="og:url" content="https://ezekias.dev/research/memory">
-  <meta property="og:image" content="https://ezekias.dev/assets/favicon/android-chrome-512x512.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/memory.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
   <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="How AI agent memory evolved, from Context Cascade to the APU">
+  <meta name="twitter:description" content="How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/memory.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ezekias.dev/research/memory#webpage",
+   "url": "https://ezekias.dev/research/memory",
+   "name": "How AI agent memory evolved, from Context Cascade to the APU | Ezekias Bokove",
+   "description": "How an AI agent memory architecture evolved, stage by stage, from Context Cascade (2025) to the Agent Processor Unit, Akili and Urithi.",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/memory.png",
+   "headline": "How AI agent memory evolved, from Context Cascade to the APU",
+   "author": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "datePublished": "2026-10-17",
+   "dateModified": "2026-10-17",
+   "image": "https://ezekias.dev/assets/og/memory.png",
+   "mainEntityOfPage": "https://ezekias.dev/research/memory",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI agent memory"
+    },
+    {
+     "@type": "Thing",
+     "name": "Agent Processor Unit"
+    },
+    {
+     "@type": "Thing",
+     "name": "Memory hierarchy"
+    }
+   ],
+   "citation": [
+    "https://ezekiasb.medium.com/context-cascade-architecture-cca-a-new-paradigm-for-context-management-in-chatbots-526d879979bb",
+    "https://medium.com/google-cloud/user-centric-context-engineering-bridging-the-gap-between-algorithmic-optimisation-and-user-cc01e1eba25a",
+    "https://medium.com/google-cloud/ux-driven-agent-memory-when-humans-decide-what-ai-is-allowed-to-know-ef9d293e6fe4",
+    "https://medium.com/google-cloud/agent-os-what-von-neumann-knew-that-your-llm-doesnt-4177b563f493",
+    "https://medium.com/google-cloud/from-agent-os-to-agent-processor-unit-cdd797fb6287",
+    "https://ezekiasb.medium.com/implementing-the-agent-processor-unit-a-tutor-that-runs-offline-d10b77803889"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Memory",
+     "item": "https://ezekias.dev/research/memory"
+    }
+   ]
+  }
+ ]
+}
+  </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/site/site.css">
@@ -238,10 +361,10 @@
     <div class="container">
       <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
       <ul>
-        <li><a href="https://github.com/EZFRICA">GitHub</a></li>
-        <li><a href="https://ezekiasb.medium.com/">Medium</a></li>
-        <li><a href="https://www.linkedin.com/in/ezekias-bokove/">LinkedIn</a></li>
-        <li><a href="https://twitter.com/EzekiasBokove">X</a></li>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
       </ul>
     </div>
   </footer>

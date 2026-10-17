@@ -3,16 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Context · Agent OS research · Ezekias Bokove</title>
-  <meta name="description" content="How agents are assembled, promoted and retired: from Context as a Service (2025) to the Context Lifecycle Engine (2026), stage by stage, with what was added, removed and deliberately not taken.">
+  <title>AI agent lifecycle, from Context as a Service to the CLE | Ezekias Bokove</title>
+  <meta name="description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
+  <meta name="author" content="Ezekias Bokove">
   <link rel="canonical" href="https://ezekias.dev/research/context">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="How agents are born, promoted and retired · Agent OS research">
-  <meta property="og:description" content="The context track of the Agent OS series, animated stage by stage.">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="AI agent lifecycle, from Context as a Service to the CLE">
+  <meta property="og:description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
   <meta property="og:url" content="https://ezekias.dev/research/context">
-  <meta property="og:image" content="https://ezekias.dev/assets/favicon/android-chrome-512x512.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/context.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
   <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="AI agent lifecycle, from Context as a Service to the CLE">
+  <meta name="twitter:description" content="How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/context.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ezekias.dev/research/context#webpage",
+   "url": "https://ezekias.dev/research/context",
+   "name": "AI agent lifecycle, from Context as a Service to the CLE | Ezekias Bokove",
+   "description": "How AI agents are assembled, promoted and retired, stage by stage, from Context as a Service (2025) to the Context Lifecycle Engine (2026).",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/context.png",
+   "headline": "AI agent lifecycle, from Context as a Service to the CLE",
+   "author": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "datePublished": "2026-10-17",
+   "dateModified": "2026-10-17",
+   "image": "https://ezekias.dev/assets/og/context.png",
+   "mainEntityOfPage": "https://ezekias.dev/research/context",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI agent lifecycle"
+    },
+    {
+     "@type": "Thing",
+     "name": "Multi-agent systems"
+    },
+    {
+     "@type": "Thing",
+     "name": "Context engineering"
+    }
+   ],
+   "citation": [
+    "https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030",
+    "https://medium.com/google-cloud/context-lifecycle-engine-when-the-agentic-system-detects-creates-and-retires-its-own-agents-bdfffce2e2ca",
+    "https://medium.com/google-cloud/context-lifecycle-engine-build-ship-and-run-your-synthesised-agents-anywhere-33be1d151426",
+    "https://medium.com/google-cloud/context-lifecycle-engine-bigquery-gemini-embeddings-and-the-cost-of-trusting-auc-53237b806b9c"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Context",
+     "item": "https://ezekias.dev/research/context"
+    }
+   ]
+  }
+ ]
+}
+  </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/site/site.css">
@@ -187,10 +308,10 @@
     <div class="container">
       <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
       <ul>
-        <li><a href="https://github.com/EZFRICA">GitHub</a></li>
-        <li><a href="https://ezekiasb.medium.com/">Medium</a></li>
-        <li><a href="https://www.linkedin.com/in/ezekias-bokove/">LinkedIn</a></li>
-        <li><a href="https://twitter.com/EzekiasBokove">X</a></li>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
       </ul>
     </div>
   </footer>

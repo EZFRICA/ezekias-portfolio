@@ -3,20 +3,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Ezekias Bokove, Agent Processor Unit</title>
+  <title>Ezekias Bokove | Agent Processor Unit and AI agent memory</title>
+  <meta name="description" content="Ezekias Bokove designs memory architectures for AI agents. The Agent Processor Unit runs agent memory like a processor: cache, page table, paging, scheduler.">
   <meta name="author" content="Ezekias Bokove">
-  <meta name="description" content="Ezekias Bokove designs memory and lifecycle architectures for AI agents. Applied AI Engineer and Google Developer Expert for Google Cloud, author of the Agent OS research series.">
-  <meta name="keywords" content="ezekias bokove, agent os, agent processor unit, context lifecycle engine, ai agent memory, google developer expert, google cloud">
   <link rel="canonical" href="https://ezekias.dev/">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Ezekias Bokove">
-  <meta property="og:title" content="Ezekias Bokove, Agent Processor Unit">
-  <meta property="og:description" content="I design how AI agents remember, and how they evolve.">
+  <meta property="og:title" content="Ezekias Bokove">
+  <meta property="og:description" content="Ezekias Bokove designs memory architectures for AI agents. The Agent Processor Unit runs agent memory like a processor: cache, page table, paging, scheduler.">
   <meta property="og:url" content="https://ezekias.dev/">
-  <meta property="og:image" content="https://ezekias.dev/assets/favicon/android-chrome-512x512.png">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@EzekiasBokove">
   <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="Ezekias Bokove">
+  <meta name="twitter:description" content="Ezekias Bokove designs memory architectures for AI agents. The Agent Processor Unit runs agent memory like a processor: cache, page table, paging, scheduler.">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/home.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,400&display=swap">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "ProfilePage",
+   "@id": "https://ezekias.dev/#webpage",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove | Agent Processor Unit and AI agent memory",
+   "description": "Ezekias Bokove designs memory architectures for AI agents. The Agent Processor Unit runs agent memory like a processor: cache, page table, paging, scheduler.",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/home.png",
+   "mainEntity": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  }
+ ]
+}
+  </script>
   <meta name="theme-color" content="#F1F4F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0E1513" media="(prefers-color-scheme: dark)">
   <link rel="manifest" href="/site.webmanifest">
@@ -191,7 +257,7 @@
           <li><a href="https://ezekiasb.medium.com/implement-secure-ci-cd-with-workload-identity-federation-gitlab-ci-cloud-deploy-d5de492ac782"><time>Cloud</time><h3>Implement secure CI/CD with WIF, GitLab CI and Cloud Deploy</h3><span class="tag">Medium</span><p>GitLab CI for integration, Cloud Deploy for delivery, no long-lived keys.</p></a></li>
           <li><a href="https://ezekiasb.medium.com/database-migration-using-cloud-seed-62c92bf713be"><time>Cloud</time><h3>Database migration using Cloud Seed</h3><span class="tag">Medium</span><p>A CI pipeline that migrates Cloud SQL schemas with GitLab’s Cloud Seed.</p></a></li>
         </ul>
-        <p class="more"><a href="https://ezekiasb.medium.com/">All articles on Medium</a></p>
+        <p class="more"><a href="https://ezekiasb.medium.com/" rel="me">All articles on Medium</a></p>
       </div>
     </section>
 
@@ -274,11 +340,11 @@
             <div><dt>parts in the Agent OS series</dt><dd>8</dd></div>
           </dl>
           <p class="links-inline">
-            <a href="https://g.dev/EzekiasBokove">Google Developer profile</a>
-            <a href="https://www.linkedin.com/in/ezekias-bokove/">LinkedIn</a>
-            <a href="https://twitter.com/EzekiasBokove">X</a>
-            <a href="https://github.com/EZFRICA">GitHub</a>
-            <a href="https://ezekiasb.medium.com/">Medium</a>
+            <a href="https://g.dev/EzekiasBokove" rel="me">Google Developer profile</a>
+            <a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a>
+            <a href="https://twitter.com/EzekiasBokove" rel="me">X</a>
+            <a href="https://github.com/EZFRICA" rel="me">GitHub</a>
+            <a href="https://ezekiasb.medium.com/" rel="me">Medium</a>
           </p>
         </div>
       </div>
@@ -290,10 +356,10 @@
       <p>© 2026 Ezekias Bokove</p>
       <ul>
         <li><a href="/research">Research</a></li>
-        <li><a href="https://github.com/EZFRICA">GitHub</a></li>
-        <li><a href="https://ezekiasb.medium.com/">Medium</a></li>
-        <li><a href="https://www.linkedin.com/in/ezekias-bokove/">LinkedIn</a></li>
-        <li><a href="https://twitter.com/EzekiasBokove">X</a></li>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
       </ul>
     </div>
   </footer>
