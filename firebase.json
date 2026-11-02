@@ -36,6 +36,23 @@
       }
     ],
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/research/memory",
+        "destination": "/research/agent-memory",
+        "type": 301
+      },
+      {
+        "source": "/research/context",
+        "destination": "/research/context-engineering",
+        "type": 301
+      },
+      {
+        "source": "/research/cle",
+        "destination": "/research/context-lifecycle-engine",
+        "type": 301
+      }
+    ]
   }
 }

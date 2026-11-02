@@ -87,7 +87,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site/site.css?v=631c539d">
+  <link rel="stylesheet" href="/assets/site/site.css?v=b0ce67d9">
   <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <script src="/assets/site/site.js?v=5e7860f8" defer></script>
   <style>
@@ -106,6 +106,26 @@
     .built .links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-family: var(--display); font-size: 0.98rem; color: var(--ink); }
     .lineage { margin-top: 2.5rem; max-width: 46rem; font-size: 1.1rem; }
     @media (max-width: 860px) { .built { grid-template-columns: minmax(0, 1fr); gap: 2rem; } }
+    .cosmos { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+    .cosmos-shot { display: block; overflow: hidden; border-radius: 12px; background: #0b0713; }
+    .cosmos-shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.5s ease; }
+    .cosmos-shot:hover img { transform: scale(1.02); }
+    .cosmos-text { display: grid; gap: 1rem; }
+    .cosmos-text p { color: var(--muted); }
+    .cosmos-facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.75rem; font-family: var(--display); }
+    .cosmos-facts b { font-size: 1.5rem; font-weight: 640; display: block; line-height: 1.1; }
+    .cosmos-facts span { font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 860px) { .cosmos { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } }
+    .music { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+    .music-covers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+    .music-covers a { display: grid; gap: 0.5rem; text-decoration: none; }
+    .music-covers img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; transition: transform 0.4s ease; }
+    .music-covers a:hover img { transform: scale(1.02); }
+    .music-covers b { font-family: var(--display); font-weight: 620; font-size: 1.1rem; }
+    .music-covers span { font-size: 0.92rem; color: var(--muted); }
+    .music-text { display: grid; gap: 1rem; }
+    .music-text p { color: var(--muted); max-width: 36rem; }
+    @media (max-width: 860px) { .music { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; } }
     .index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
     .index li { border-bottom: 1px solid var(--rule); }
     .index a { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.3rem 2rem; padding: 1.15rem 0; text-decoration: none; }
@@ -181,9 +201,10 @@
           <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="systems-menu">Systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
           <ul class="sub" id="systems-menu">
             <li><a href="/research/urithi"><b>Urithi</b><span>how knowledge moves</span></a></li>
-            <li><a href="/research/cle"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
+            <li><a href="/research/context-lifecycle-engine"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
           </ul>
         </li>
+        <li><a href="/music">Music</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#speaking">Speaking</a></li>
         <li><a href="#about">About</a></li>
@@ -231,10 +252,42 @@
           <article>
             <h3>Context Lifecycle Engine</h3>
             <p>Watches how someone works, and turns a habit into an agent that is promoted on evidence and retired when its proof expires.</p>
-            <p class="links"><a href="/research/cle">See how an agent is born</a><a href="https://github.com/EZFRICA/context-lifecycle-engine">Code</a></p>
+            <p class="links"><a href="/research/context-lifecycle-engine">See how an agent is born</a><a href="https://github.com/EZFRICA/context-lifecycle-engine">Code</a></p>
           </article>
         </div>
-        <p class="lineage">How the architecture got here: <a href="/research/memory">eight stages of memory</a>, from a 2025 chatbot that forgot too much, and <a href="/research/context">six stages of agent lifecycle</a>, from versioned blocks to agents that grow from usage.</p>
+        <p class="lineage">How the architecture got here: <a href="/research/agent-memory">eight stages of memory</a>, from a 2025 chatbot that forgot too much, and <a href="/research/context-engineering">six stages of agent lifecycle</a>, from versioned blocks to agents that grow from usage.</p>
+      </div>
+    </section>
+
+    <section class="section" id="urithi-cosmos">
+      <div class="container cosmos">
+        <a class="cosmos-shot" href="https://urithi.ezekias.dev/" aria-label="Open Urithi Cosmos">
+          <img src="/assets/img/thumbs/urithi-cosmos.jpg" alt="Urithi Cosmos: a 3D map of Africa where each country opens its tales" loading="lazy" width="1200" height="750">
+        </a>
+        <div class="cosmos-text">
+          <h2>Urithi Cosmos</h2>
+          <p>African tales on a 3D map. Pick a country, sit under the palaver tree, and listen to an elder’s voice tell its stories in English, French or, in 38 villages, a local language. Local versions are machine translations, not yet reviewed by native speakers.</p>
+          <ul class="cosmos-facts">
+            <li><b>550</b><span>tales</span></li>
+            <li><b>54</b><span>countries and La Réunion</span></li>
+            <li><b>37</b><span>narrated languages</span></li>
+          </ul>
+          <div class="actions"><a class="btn" href="https://urithi.ezekias.dev/">Open Urithi Cosmos</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="music">
+      <div class="container music">
+        <div class="music-text">
+          <h2>Music made with AI</h2>
+          <p>As Kiassob, I release African music built with LLMs, music generation, text-to-speech, speech-to-text checks and lyric videos written in code. Five releases since June 2026 on Mahuton Records.</p>
+          <div class="actions"><a class="btn" href="/music">See the music and the studio</a></div>
+        </div>
+        <ul class="music-covers">
+          <li><a href="/music#goor-goorlu"><img src="/assets/img/music/goor-goorlu-cover.jpg" alt="Góor-góorlu cover" loading="lazy" width="800" height="800"><b>Góor-góorlu</b><span>Single, November 2026</span></a></li>
+          <li><a href="/music#bambelela"><img src="/assets/img/music/bambelela-cover.jpg" alt="Bambelela cover" loading="lazy" width="800" height="800"><b>Bambelela</b><span>Single, November 2026</span></a></li>
+        </ul>
       </div>
     </section>
 
