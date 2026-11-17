@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Keeping pace: changing the parts of an agent without losing what you know | Ezekias Bokove</title>
+  <meta name="description" content="Six habits from three measured projects for changing a model, an embedder or a memory design without losing what you already measured.">
+  <meta name="author" content="Ezekias Bokove">
+  <link rel="canonical" href="https://ezekias.dev/research/keeping-pace">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ezekias Bokove">
+  <meta property="og:title" content="Keeping pace: changing the parts of an agent without losing what you know">
+  <meta property="og:description" content="Six habits from three measured projects for changing a model, an embedder or a memory design without losing what you already measured.">
+  <meta property="og:url" content="https://ezekias.dev/research/keeping-pace">
+  <meta property="og:image" content="https://ezekias.dev/assets/og/keeping-pace.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-11-16">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@EzekiasBokove">
+  <meta name="twitter:creator" content="@EzekiasBokove">
+  <meta name="twitter:title" content="Keeping pace: changing the parts of an agent without losing what you know">
+  <meta name="twitter:description" content="Six habits from three measured projects for changing a model, an embedder or a memory design without losing what you already measured.">
+  <meta name="twitter:image" content="https://ezekias.dev/assets/og/keeping-pace.png">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://ezekias.dev/#person",
+   "name": "Ezekias Bokove",
+   "alternateName": "Mahuton Ezekias Bokove",
+   "url": "https://ezekias.dev/",
+   "image": "https://ezekias.dev/assets/img/thumbs/ezekias_bokove-speaker.jpg",
+   "jobTitle": "Applied AI Engineer",
+   "description": "Applied AI Engineer and Google Developer Expert for Google Cloud. Author of the Agent Processor Unit, an open memory architecture for AI agents.",
+   "award": "Google Developer Expert, Google Cloud",
+   "knowsAbout": [
+    "AI agent memory",
+    "Agent Processor Unit",
+    "Context engineering",
+    "Multi-agent systems",
+    "Google Cloud",
+    "Retrieval-augmented generation"
+   ],
+   "sameAs": [
+    "https://github.com/EZFRICA",
+    "https://ezekiasb.medium.com/",
+    "https://www.linkedin.com/in/ezekias-bokove/",
+    "https://twitter.com/EzekiasBokove",
+    "https://g.dev/EzekiasBokove"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://ezekias.dev/#website",
+   "url": "https://ezekias.dev/",
+   "name": "Ezekias Bokove",
+   "inLanguage": "en",
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   }
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ezekias.dev/research/keeping-pace#webpage",
+   "url": "https://ezekias.dev/research/keeping-pace",
+   "name": "Keeping pace: changing the parts of an agent without losing what you know | Ezekias Bokove",
+   "description": "Six habits from three measured projects for changing a model, an embedder or a memory design without losing what you already measured.",
+   "isPartOf": {
+    "@id": "https://ezekias.dev/#website"
+   },
+   "inLanguage": "en",
+   "primaryImageOfPage": "https://ezekias.dev/assets/og/keeping-pace.png",
+   "headline": "Keeping pace: changing the parts of an agent without losing what you know",
+   "author": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ezekias.dev/#person"
+   },
+   "datePublished": "2026-11-16",
+   "dateModified": "2026-11-16",
+   "image": "https://ezekias.dev/assets/og/keeping-pace.png",
+   "mainEntityOfPage": "https://ezekias.dev/research/keeping-pace",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI agent harness"
+    },
+    {
+     "@type": "Thing",
+     "name": "Model evaluation"
+    },
+    {
+     "@type": "Thing",
+     "name": "Prompt caching"
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ezekias.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Research",
+     "item": "https://ezekias.dev/research"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Keeping pace",
+     "item": "https://ezekias.dev/research/keeping-pace"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2?v=c5d0fcda" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site/site.css?v=8235759c">
+  <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script src="/assets/site/site.js?v=5e7860f8" defer></script>
+  <style>
+    .kp-hero { max-width: 52rem; margin: 0 auto; padding-block: 4rem 2.5rem; text-align: center; display: grid; gap: 1.2rem; justify-items: center; }
+    .kp-hero .crumbs { font-family: var(--mono); font-size: 0.88rem; color: var(--muted); margin: 0; }
+    .kp-hero .crumbs a { color: var(--muted); }
+    .kp-hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+    .kp-hero h1 em { font-style: normal; color: var(--probe); }
+    .kp-hero .lede { margin: 0 auto; max-width: 40rem; text-wrap: pretty; }
+    .meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.1rem; font-family: var(--mono); font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .meta .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; }
+    .meta .tags span { border: 1px solid var(--rule); border-radius: 999px; padding: 0.1rem 0.65rem; font-size: 0.82rem; }
+    .numbers { list-style: none; margin: 0 auto 1rem; padding: 0; max-width: 64rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .numbers li { border: 1px solid var(--rule); border-radius: 12px; padding: 1.1rem 1.1rem 1.2rem; display: grid; gap: 0.45rem; align-content: start; background: var(--card); }
+    .numbers b { font-family: var(--display); font-stretch: 112%; font-weight: 740; font-size: 1.75rem; line-height: 1; color: var(--probe); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .numbers p { margin: 0; font-size: 0.9rem; line-height: 1.45; color: var(--muted); }
+    @media (max-width: 900px) { .numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .numbers { grid-template-columns: minmax(0, 1fr); } }
+    .habits { max-width: 42rem; margin: 2.5rem auto 0; padding: 1.2rem 1.4rem; border: 1px solid var(--rule); border-radius: 12px; }
+    .habits p { margin: 0 0 0.6rem; font-family: var(--display); font-weight: 700; }
+    .habits ol { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.3rem; }
+    .habits a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
+    .habits a:hover { text-decoration-color: var(--probe); }
+    .prose { max-width: 42rem; margin: 0 auto; padding-block: 1rem 2rem; font-size: 1.06rem; }
+    .prose h2 { margin: 3.5rem 0 1.1rem; padding-top: 2.2rem; border-top: 1px solid var(--rule); font-size: clamp(1.45rem, 2.6vw, 1.85rem); line-height: 1.15; text-wrap: balance; scroll-margin-top: calc(var(--header-h) + 1rem); }
+    .prose h2.habit .kicker { display: block; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--probe); margin-bottom: 0.45rem; }
+    .prose p, .prose li { line-height: 1.7; }
+    .prose p { margin: 0 0 1.15rem; }
+    .prose ul, .prose ol { margin: 0 0 1.3rem; padding-left: 1.3rem; display: grid; gap: 0.45rem; }
+    .prose a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
+    .prose a:hover { text-decoration-color: var(--probe); }
+    .prose strong { font-weight: 650; }
+    .prose code { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 0.05em 0.3em; }
+    .prose hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0; }
+    .wide { position: relative; left: 50%; transform: translateX(-50%); }
+    .fig { width: min(62rem, calc(100vw - 2rem)); margin: 2.4rem 0 2.6rem; display: grid; gap: 0.75rem; }
+    .fig img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -18px rgba(0,0,0,0.25); }
+    .fig figcaption { max-width: 42rem; margin: 0 auto; text-align: center; font-size: 0.92rem; line-height: 1.5; color: var(--muted); }
+    .code { width: min(48rem, calc(100vw - 2rem)); margin: 1.6rem 0 1.8rem; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: var(--card); }
+    .code-label { margin: 0 !important; padding: 0.55rem 1rem; border-bottom: 1px solid var(--rule); font-family: var(--code); font-size: 0.8rem; color: var(--muted); }
+    .code pre { margin: 0; padding: 1rem 1.1rem; overflow-x: auto; font-size: 0.88rem; line-height: 1.55; }
+    .code pre code { background: none; border: 0; padding: 0; font-size: 0.86em; }
+    /* syntax colours from the site palette, so light and dark themes both follow */
+    .hl { --hl-key: var(--probe); --hl-str: #2E7D4F; --hl-num: var(--red); --hl-com: var(--muted); --hl-fn: var(--amber); }
+    :root[data-theme="dark"] .hl { --hl-str: #7FCB98; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hl { --hl-str: #7FCB98; } }
+    .hl .k, .hl .kn, .hl .kd, .hl .kr, .hl .ow, .hl .kc, .hl .kt { color: var(--hl-key); font-weight: 600; }
+    .hl .s, .hl .s1, .hl .s2, .hl .sa, .hl .se, .hl .si, .hl .sb, .hl .sc { color: var(--hl-str); }
+    .hl .sd { color: var(--hl-str); font-style: italic; }
+    .hl .c, .hl .c1, .hl .ch, .hl .cm, .hl .cs { color: var(--hl-com); font-style: italic; }
+    .hl .m, .hl .mi, .hl .mf, .hl .mh, .hl .il { color: var(--hl-num); }
+    .hl .nf, .hl .fm { color: var(--hl-fn); font-weight: 600; }
+    .hl .nc, .hl .nb, .hl .bp { color: var(--hl-fn); }
+    .hl .nd { color: var(--hl-key); }
+    .hl .nt { color: var(--hl-key); }
+    .hl .o, .hl .p { color: var(--muted); }
+    .tbl { width: min(50rem, calc(100vw - 2rem)); margin: 1.8rem 0 2rem; overflow-x: auto; }
+    .tbl table { border-collapse: collapse; width: 100%; font-size: 0.93rem; font-variant-numeric: tabular-nums; }
+    .tbl th, .tbl td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
+    .tbl th { font-family: var(--display); font-weight: 700; border-bottom: 2px solid var(--ink); }
+    .tbl tbody tr:hover { background: var(--card); }
+    .tbl .cap { margin: 0.7rem 0 0; font-size: 0.9rem; color: var(--muted); text-align: center; }
+    .end { max-width: 42rem; margin: 1rem auto 0; border-top: 1px solid var(--rule); padding-block: 2.5rem 4.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><b>Ezekias Bokove</b><span>Agent Processor Unit</span></a>
+      <ul class="nav" id="site-nav">
+        <li><a href="/research">Research</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="systems-menu">Systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <ul class="sub" id="systems-menu">
+            <li><a href="/research/urithi"><b>Urithi</b><span>how knowledge moves</span></a></li>
+            <li><a href="/research/context-lifecycle-engine"><b>Context Lifecycle Engine</b><span>how an agent is born</span></a></li>
+            <li class="sep" role="separator"></li>
+            <li><a href="/research/keeping-pace" aria-current="page"><b>Keeping pace</b><span>six habits for changing an agent’s parts</span></a></li>
+          </ul>
+        </li>
+        <li><a href="/music">Music</a></li>
+        <li><a href="/#writing">Writing</a></li>
+        <li><a href="/#speaking">Speaking</a></li>
+        <li><a href="/#about">About</a></li>
+      </ul>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="kp-hero">
+      <p class="crumbs"><a href="/research">Research</a> / Keeping pace</p>
+      <h1>Keeping pace: <em>changing the parts of an agent</em> without losing what you know</h1>
+      <p class="lede">A year after &quot;Context as a Service&quot;, three projects, one lesson: you do not keep up with AI by reading faster, you keep up by making every change cheap to try and quick to judge.</p>
+      <p class="meta"><span>Ezekias Bokove</span><time datetime="2026-11-16">November 16, 2026</time><span>15 min read</span>
+        <span class="tags"><span>Urithi</span><span>Context Lifecycle Engine</span><span>Harness cache study</span></span></p>
+    </header>
+
+    <ul class="numbers">
+      <li><b>0.040</b><p>cosine between two Gemini embedding models on the same texts: two spaces, not two versions</p></li>
+      <li><b>76 → 0</b><p>of 131 unrelated episodes fired once the threshold travelled with its vector space</p></li>
+      <li><b>15.0 → 5.7</b><p>points: a published gap, re-measured in the space the engine actually runs on</p></li>
+      <li><b>23 → 24</b><p>of 24 facts recalled on Flash-Lite with pinned statements, for about 5% more</p></li>
+    </ul>
+
+    <nav class="habits" aria-label="The six habits">
+      <p>The six habits</p>
+      <ol>
+        <li><a href="#habit-1-put-every-moving-part-behind-an-interface-and-record-what-it-was">put every moving part behind an interface, and record what it was</a></li>
+        <li><a href="#habit-2-a-threshold-belongs-to-its-space">a threshold belongs to its space</a></li>
+        <li><a href="#habit-3-proof-expires">proof expires</a></li>
+        <li><a href="#habit-4-re-measure-never-relabel">re-measure, never relabel</a></li>
+        <li><a href="#habit-5-keep-a-cheap-bench-of-your-own-usage-so-a-new-idea-gets-a-verdict-in-days">keep a cheap bench of your own usage, so a new idea gets a verdict in days</a></li>
+        <li><a href="#habit-6-make-sure-your-tests-would-notice">make sure your tests would notice</a></li>
+      </ol>
+    </nav>
+
+    <article class="prose">
+<p>In August 2025 I wrote about <a href="https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030" rel="noopener">Context as a Service</a>. The idea was to build agents from versioned blocks, each one holding a model, tools, memory, a prompt and a suite of evals, and to promote those blocks from dev to prod like any other release. One scenario in that post read "a month later, a new version of an LLM is released". I wrote it as an edge case.</p>
+<p>It is not an edge case anymore. It is a normal week. Since then I have built three systems:</p>
+<ul>
+<li><strong>Urithi</strong>, which turns the way an expert teaches into structured, tested knowledge for learners. Its memory is the APU memory hierarchy (an in-process cache, a list of typed blocks, a vector store).</li>
+<li><strong>The Context Lifecycle Engine (CLE)</strong>, which lets agents emerge from how a person actually works, and promotes or demotes them on evidence. Phases P1 to P3 of its v1 blueprint are implemented.</li>
+<li><strong>A harness cache study</strong>, which measures what an agent gains from caching the work around the model: memory search, embeddings, tool results and the prompt prefix.</li>
+</ul>
+<p>In all three, the first version was never the hard part. The hard part was the next model, the next embedding model, the provider that changed its behaviour overnight, and the paper that made me rethink a design. This post is about the habits that let those systems absorb change, and the measurements that taught me each one.</p>
+<h2 id="what-moves-and-how-often">What moves, and how often</h2>
+<p>Here is what changed under these projects in the last few months, without a single line of my code changing:</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/1-what-moved.png"><img src="/assets/img/research/keeping-pace/1-what-moved.gif" alt="What moved under one agent block: six dated changes pointing at the model, the embedder and the memory design" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 1. Everything a block depends on keeps moving. Each red arrow is a change I did not choose and was not warned about.</figcaption></figure>
+<p>Some of these are large. Two Gemini embedding models, <code>gemini-embedding-001</code> and <code>gemini-embedding-2</code>, agree at a cosine of <strong>0.040</strong> on the same texts: they are not two versions of one space, they are two spaces. Others are small and sneaky: a provider that served part of my prompt from cache one day and none of it three days later.</p>
+<p>You cannot plan for this list. You can only decide what a change costs you when it arrives. Here is the loop I ended up with.</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/2-change-loop.png"><img src="/assets/img/research/keeping-pace/2-change-loop.gif" alt="The change loop: a change arrives, goes behind an interface, is replayed for free, then run on a small budget, frozen and compared, then promoted; drift sends it back to the start" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 2. The change loop. Each step below is a habit, and each habit comes from something that broke or something I measured.</figcaption></figure>
+<h2 id="habit-1-put-every-moving-part-behind-an-interface-and-record-what-it-was" class="habit"><span class="kicker">Habit 1</span>put every moving part behind an interface, and record what it was</h2>
+<p>In Urithi, every store sits behind an interface with a local implementation and contract tests any production version must pass (decision 0005). That sounds like ordinary engineering. What made it matter was the model calls.</p>
+<p>Urithi first called Gemini through its OpenAI compatible endpoint. On a real call, that endpoint reported <strong>2 completion tokens for a call whose total was 121</strong>: the thinking tokens were billed but not shown. A cost meter reading that response would have counted a fraction of the bill. Measured later through the provider's own SDK, wording a single question used <strong>623 thinking tokens for a 17 token answer</strong>. So Urithi now calls each provider through its own SDK, behind the same two functions, and every call hands its billed usage to whoever listens:</p>
+<div class="code wide"><p class="code-label">apu-urithi · apu/inference/llm.py</p><pre class="hl"><code class="language-python"><span class="k">def</span><span class="w"> </span><span class="nf">usage_of</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">role</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">provider</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Usage</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Tokens billed, from the response. Output is total minus prompt: thinking included."""</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s2">"usage_metadata"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"prompt_token_count"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="n">thinking</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"thoughts_token_count"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"total_token_count"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"candidates_token_count"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="ow">or</span> <span class="n">prompt</span> <span class="o">+</span> <span class="n">answer</span> <span class="o">+</span> <span class="n">thinking</span>
+    <span class="k">return</span> <span class="n">Usage</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="n">provider</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">prompt_tokens</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span>
+                 <span class="n">output_tokens</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">prompt</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thinking_tokens</span><span class="o">=</span><span class="n">thinking</span><span class="p">,</span>
+                 <span class="n">total_tokens</span><span class="o">=</span><span class="n">total</span><span class="p">)</span></code></pre></div>
+<p>Output is computed as total minus prompt, so whatever a provider bills as thinking is counted even if it is not reported as an answer.</p>
+<p>The second half of the habit is provenance. In the CLE, an embedder is a substrate: every trigger records the <code>embedder_id</code> of the space that made it, and comparing vectors from two spaces raises an error instead of returning a number. In the harness study, every frozen run carries a pinning key, the full description of what produced its numbers. This is a real one, trimmed to the fields that matter here:</p>
+<div class="code wide"><pre class="hl"><code class="language-json"><span class="p">{</span>
+<span class="w">  </span><span class="nt">"run_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gemapi-g35lite-lf500-compact-pin-v1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gemini-3.5-flash-lite"</span><span class="p">,</span><span class="w"> </span><span class="nt">"llm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gemini"</span><span class="p">,</span><span class="w"> </span><span class="nt">"prefix_cache"</span><span class="p">:</span><span class="w"> </span><span class="s2">"implicit"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"embedder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"onnx"</span><span class="p">,</span><span class="w"> </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compact"</span><span class="p">,</span><span class="w"> </span><span class="nt">"compact_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w"> </span><span class="nt">"compact_keep"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"verbatim_pin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"verbatim_recall"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"scenario"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/scenarios/long_facts_en_v1.jsonl"</span><span class="p">,</span><span class="w"> </span><span class="nt">"scenario_sha"</span><span class="p">:</span><span class="w"> </span><span class="s2">"819650542c17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"pricing_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0c644146e92f"</span><span class="p">,</span><span class="w"> </span><span class="nt">"code_sha"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83e7b89+h10"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cpus"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nt">"memory_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span><span class="w"> </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-16"</span>
+<span class="p">}</span></code></pre></div>
+<p>The memory switches (<code>verbatim_pin</code>, <code>compact_at</code>) were added to that key only recently. Before, two runs with different memory designs had the same key, and the dashboard reported them as "same setup". A key that misses a moving part will hide exactly the change you are trying to judge.</p>
+<h2 id="habit-2-a-threshold-belongs-to-its-space" class="habit"><span class="kicker">Habit 2</span>a threshold belongs to its space</h2>
+<p>This one cost me months.</p>
+<p>The CLE groups a person's recurring intents into clusters, then validates a candidate agent by replaying the person's own history: does its trigger fire on the intent it was built for, and on nothing else? On a Stack Overflow corpus, with moderator duplicates as ground truth, it grouped <strong>32 of 48</strong> attested intents in one cluster, against about 2% at random. But the same run reported a false trigger rate of <strong>0.580</strong>, and for months I read that as "the detector fires on almost everything".</p>
+<p>It was not the detector. It was one line.</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/3-threshold.png"><img src="/assets/img/research/keeping-pace/3-threshold.gif" alt="131 unrelated episodes on a similarity axis: at a routing bar of 0.6, 76 fire; at the space&#x27;s own 0.775, none fire" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 3. Two halves of one measurement read at two different bars. In this space, 0.6 sits below the median similarity between different intents (0.61), so most unrelated episodes cleared it. The counts are measured; the position of each point is illustrative.</figcaption></figure>
+<p>The fix makes the bar travel with the space:</p>
+<div class="code wide"><p class="code-label">context-lifecycle-engine · cle/detect/clusters.py</p><pre class="hl"><code class="language-python"><span class="c1"># The clustering threshold is a property of the VECTOR SPACE, not a global</span>
+<span class="c1"># default: bag-of-tokens puts same-domain text at ~0.2-0.4, a real sentence</span>
+<span class="c1"># embedder at ~0.7-0.9, so one number cannot serve both.</span>
+<span class="n">CLUSTER_THRESHOLD_BY_EMBEDDER</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"stub:hashed64"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+    <span class="s2">"google:gemini-embedding-2:768"</span><span class="p">:</span> <span class="mf">0.775</span><span class="p">,</span>
+    <span class="s2">"onnx:embeddinggemma-300m-fp16:query:768"</span><span class="p">:</span> <span class="mf">0.46</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cluster_threshold_for</span><span class="p">(</span><span class="n">embedder_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">CLUSTER_THRESHOLD_BY_EMBEDDER</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">embedder_id</span> <span class="ow">or</span> <span class="s2">""</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></code></pre></div>
+<div class="code wide"><p class="code-label">context-lifecycle-engine · cle/build/replay.py</p><pre class="hl"><code class="language-python"><span class="n">routing_bar</span> <span class="o">=</span> <span class="n">cluster_threshold_for</span><span class="p">(</span>
+    <span class="nb">getattr</span><span class="p">(</span><span class="n">embedder</span><span class="p">,</span> <span class="s2">"embedder_id"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">cluster_similarity_threshold</span>
+<span class="p">)</span></code></pre></div>
+<p>Why did the whole offline suite never catch it? Because the test embedder, <code>stub:hashed64</code>, is calibrated at 0.6, the very value the broken line used. Every fixture figure was unchanged by the fix. <strong>Only a space calibrated somewhere else could reveal the defect.</strong> Adding a second, local embedding space (EmbeddingGemma 300m on CPU, 40 of 48 intents grouped, false trigger rate 0.000 to 0.023) is what made the first space's bug visible.</p>
+<p>The harness study hit the same wall from the other side. When I added EmbeddingGemma 2 next to MiniLM for memory search, the search thresholds had to come with it, set per embedder, or the better model would have looked worse. So when you swap a model, list every number in your code that was tuned on the old one. They are part of the swap.</p>
+<h2 id="habit-3-proof-expires" class="habit"><span class="kicker">Habit 3</span>proof expires</h2>
+<p>The CLE builds each agent into an image and freezes a fingerprint of the model it was validated on: twelve probes drawn from the user's own history, and a hash of each output. A re-validator replays them against whatever model is served now:</p>
+<div class="code wide"><p class="code-label">context-lifecycle-engine · cle/lifecycle/revalidator.py</p><pre class="hl"><code class="language-python"><span class="n">current_output_hashes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="n">content_hash</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">fingerprinter</span><span class="o">.</span><span class="n">outputs</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">probe_set</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># `zip_longest`, not `zip`: a probe whose output went missing, or an output</span>
+<span class="c1"># with no frozen counterpart, is a probe that moved.</span>
+<span class="n">probe_deltas</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"probe-</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">frozen</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+        <span class="n">zip_longest</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">probe_output_hashes</span><span class="p">,</span> <span class="n">current_output_hashes</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">frozen</span> <span class="o">!=</span> <span class="n">current</span>
+<span class="p">)</span>
+<span class="n">oplog</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"revalidation_failed"</span> <span class="k">if</span> <span class="n">probe_deltas</span> <span class="k">else</span> <span class="s2">"revalidate"</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span></code></pre></div>
+<p>A failed re-validation can demote an agent, never promote one. The comment about <code>zip_longest</code> is itself a lesson: with <code>zip</code>, a truncated answer changed the fingerprint while naming no probe that moved, and the proof was reported as holding.</p>
+<p>The harness study shows why proof has to expire. I ran the same 1500 turn conversation, with 24 personal facts hidden in everyday chatter, on four models. Here is the share of the prompt the provider served from its cache, for the same memory design:</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/4-provider-cache.png"><img src="/assets/img/research/keeping-pace/4-provider-cache.gif" alt="Share of the prompt served from the provider&#x27;s cache: GLM-5.3 96.5%, DeepSeek V4 Flash 96.0%, Gemini 3.5 Flash-Lite 58.4%, Nemotron 3 Super 1.6 to 3.0%" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 4. Same harness, same prompts, same conversation. On Nemotron 3 Super the summary runs never finished: they stopped between turns 1142 and 1227 of 1500, and their reruns failed at the first call when my Nebius quota ran out. Its bar shows the extracted memory runs, which completed all 1500 turns: 1.6 to 3.0% from cache, at the same provider as GLM-5.3.</figcaption></figure>
+<p>The cheapest way to remember moved with the model:</p>
+<div class="tbl wide"><table>
+<thead>
+<tr>
+<th>model</th>
+<th>running summary</th>
+<th>extracted notes, written only for statements</th>
+<th>cheaper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSeek V4 Flash (Nebius)</td>
+<td><strong>0.131</strong> USD, 24/24 facts</td>
+<td>0.173 USD, 24/24</td>
+<td>summary</td>
+</tr>
+<tr>
+<td>GLM-5.3 (Nebius)</td>
+<td>3.421 USD, 24/24</td>
+<td><strong>3.126</strong> USD, 24/24</td>
+<td>notes</td>
+</tr>
+</tbody>
+</table><p class="cap">Table 1. One run per cell for GLM-5.3, so read the gap as a direction, not a size. Source: <code>docs/measured/decisive-1500.md</code> and <code>docs/measured/models-1500-glm53.md</code>, each with its reproduce command.</p></div>
+<p>And a setting that was safe on one model was not safe on another: extracting memory once every two exchanges lost facts with GLM-5.2 (8 of 13 kept) and GLM-5.3 (11 of 13), where extracting every turn kept them all. A result is a fact about a model, a provider and a day. When any of the three moves, the result is a hypothesis again.</p>
+<h2 id="habit-4-re-measure-never-relabel" class="habit"><span class="kicker">Habit 4</span>re-measure, never relabel</h2>
+<p>For months, every CLE benchmark ran in <code>gemini-embedding-001</code>, because BigQuery could not host the model the engine actually uses. On October 5, 2026, BigQuery made <code>gemini-embedding-2</code> available, and the two surfaces finally shared one space:</p>
+<div class="code wide"><pre class="hl"><code class="language-text">remote model                 raw norms             cosine against the engine's cache
+emb_gemini_embedding_2       1.000000 to 1.000001  median 1.000000, 20/20 identical to 1e-6
+emb_gemini_embedding_001     0.582974 to 0.599283  median 0.040290, 0/20</code></pre></div>
+<p>The tempting move was to keep the published figures and update their labels. I re-ran them instead. Some held. Some did not:</p>
+<div class="tbl wide"><table>
+<thead>
+<tr>
+<th>published claim</th>
+<th>in <code>gemini-embedding-001</code></th>
+<th>in the engine's own space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>raw text beats facets (cross-user bench)</td>
+<td><strong>15.0</strong> points</td>
+<td><strong>5.7</strong> points</td>
+</tr>
+<tr>
+<td>cost of the facet boundary, strict</td>
+<td>12.0 points</td>
+<td>14.5 points</td>
+</tr>
+<tr>
+<td>amplification on real WildChat users</td>
+<td>7x</td>
+<td>between 7x and 33x, depending on the space</td>
+</tr>
+</tbody>
+</table><p class="cap">Table 2. The direction held in every case. The size did not. Source: CLE <code>docs/findings/</code>, each figure with its pinning key and reproduce command.</p></div>
+<p>"Raw text beats facets by 15.0 points" was a sentence I had repeated in talks. In the space the engine runs on, it is 5.7. The old number was not wrong; it was true somewhere else. So the rule in both repositories is the same: a number carries the key of the setup that produced it and the command that reproduces it, and a new measurement is added beside the old one, never over it.</p>
+<h2 id="habit-5-keep-a-cheap-bench-of-your-own-usage-so-a-new-idea-gets-a-verdict-in-days" class="habit"><span class="kicker">Habit 5</span>keep a cheap bench of your own usage, so a new idea gets a verdict in days</h2>
+<p>Reading a paper does not tell you whether it helps your agent. Measuring it does, and that is only realistic if measuring is cheap. Here is a full cycle, from reading to verdict.</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/5-five-days.png"><img src="/assets/img/research/keeping-pace/5-five-days.gif" alt="Timeline from November 11 to 16: read the post, build pinned statements, free replay, deliberate defects, 500 turns on Flash-Lite, one variant rejected, 1.41 USD spent" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 5. Five days and about 1.4 USD from a research post to a measured answer.</figcaption></figure>
+<p>The idea came from <a href="https://www.anthropic.com/research/components-of-agent-memory" rel="noopener">Anthropic's post on the components of agent memory</a>. In one of their tests, several agents summarising contract terms into one shared table kept 41 of 57 graded facts; one agent per contract, quoting the terms word for word, kept all 57. My harness folds old conversation into a running summary, so I tried the obvious version: at each fold, copy the user's own statements of fact, word for word, into a small block after the summary.</p>
+<div class="code wide"><p class="code-label">harness cache study · src/harness_cache/engine.py (branch consolidation-ideas)</p><pre class="hl"><code class="language-python"><span class="k">def</span><span class="w"> </span><span class="nf">pin_statements</span><span class="p">(</span><span class="n">pinned</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Message</span><span class="p">],</span> <span class="n">first_turn</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""H10: the folded user messages that state a fact, word for word. A statement said again</span>
+<span class="sd">    moves to its latest turn, so the newest value of a corrected fact is read last."""</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pinned</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="s2">"user"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">states_a_fact</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_turn</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">out</span></code></pre></div>
+<p>No model call, no search: it runs on the cold path, while nobody waits, and the block changes only when a fold happens, so the start of the prompt stays cacheable.</p>
+<p><strong>Step one, free.</strong> I replayed the 1500 turn scenario with a stand-in model that answers instantly and costs nothing. It cannot tell me whether answers are right, but it can tell me whether the right sentence reaches the prompt:</p>
+<div class="tbl wide"><table>
+<thead>
+<tr>
+<th>arm (stand-in model, 1500 turns)</th>
+<th>fact's sentence in the prompt, word for word</th>
+<th>turns that got a search quote</th>
+<th>prompt tokens</th>
+<th>memory time per turn, median / p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>summary only</td>
+<td>4/24</td>
+<td>0</td>
+<td>4.95 M</td>
+<td>1.9 / 4.2 ms</td>
+</tr>
+<tr>
+<td>summary + search over past messages (MiniLM)</td>
+<td>24/24</td>
+<td>1273</td>
+<td>5.26 M</td>
+<td>3.9 / 57 ms</td>
+</tr>
+<tr>
+<td>summary + search (EmbeddingGemma 2)</td>
+<td>24/24</td>
+<td>1273</td>
+<td>5.26 M</td>
+<td>4.1 / 170 ms</td>
+</tr>
+<tr>
+<td>summary + pinned statements</td>
+<td>24/24</td>
+<td>0</td>
+<td>5.92 M</td>
+<td>1.9 / 3.4 ms</td>
+</tr>
+</tbody>
+</table><p class="cap">Table 3. The pinned block puts every fact in the prompt with no search and no latency tail, for about 20% more prompt tokens than the summary alone. Source: <code>docs/measured/verbatim-pin-1500.md</code>.</p></div>
+<p><strong>Step two, about 1.4 USD.</strong> Then 500 turns on a real model:</p>
+<div class="tbl wide"><table>
+<thead>
+<tr>
+<th>arm (Gemini 3.5 Flash-Lite, 500 turns)</th>
+<th>facts recalled</th>
+<th>cost</th>
+<th>prompt tokens</th>
+<th>served from cache</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>summary only</td>
+<td><strong>23/24</strong></td>
+<td>0.455 USD</td>
+<td>1.84 M</td>
+<td>32.9%</td>
+</tr>
+<tr>
+<td>summary + pinned statements</td>
+<td><strong>24/24</strong></td>
+<td>0.478 USD</td>
+<td>2.08 M</td>
+<td>36.2%</td>
+</tr>
+<tr>
+<td>pinned, kept out of the summary</td>
+<td>24/24</td>
+<td>0.479 USD</td>
+<td>2.07 M</td>
+<td>36.0%</td>
+</tr>
+</tbody>
+</table><p class="cap">Table 4. Source: <code>docs/measured/verbatim-pin-flashlite-500.md</code>, one run per arm.</p></div>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/6-the-fact-a-summary-lost.png"><img src="/assets/img/research/keeping-pace/6-the-fact-a-summary-lost.gif" alt="Two lanes over 150 turns: the sentence said at turn 37 is folded into the summary by turn 114; at turn 148 the summary-only agent answers that it has no note, the pinned agent answers July 9" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 6. The same sentence in two runs. The answer in red is quoted from the summary-only run.</figcaption></figure>
+<p>The summary alone lost one fact. "My sister's birthday is on July 9" was said at turn 37, folded into the summary, and gone by turn 148, when the model answered that it had no note about it. With the pinned block, the sentence was in the prompt and the fact came back, for about 5% more on the bill: 13% more tokens, but the block sits at the start of the prompt, where part of it is read from cache.</p>
+<p>The variant was rejected. Leaving pinned sentences out of the summary did not shrink it; its median grew from 453 to 545 estimated tokens. The model filled the space with something else.</p>
+<p>This is one run per arm, so that birthday is an observation, not a rate. The compact arm also ran on a different API key and day than the pinned arms, so the cache share is not attributable to the design alone. Those limits are written into the figure itself, next to the numbers.</p>
+<p>A bench also tells you when nothing changed, and that is a result too. In Urithi I compared two speech recognition models on ten clips, then on ten French questions carrying 22 numbers. Both kept 16 of 22, failing on the same three clips in the same places. An error both models make on the same clip is the clip, not the model. Nothing separated them, and saying otherwise would have been inventing a result.</p>
+<p>And sometimes the bench says the obvious improvement is a regression. Urithi ranks the parts of a knowledge by meaning, and fusing that with word matching (BM25, reciprocal rank fusion) looked like a free gain. On 38 questions written before anything was built, it hurt the French ones: 8 of 12 found first, against 10 of 12 by meaning alone. Short words matched by chance across languages, French "on" for English "on". Counting words only when the question is in the knowledge's language gave the best of both: 32 of 38 found first, against 30 before.</p>
+<h2 id="habit-6-make-sure-your-tests-would-notice" class="habit"><span class="kicker">Habit 6</span>make sure your tests would notice</h2>
+<p>A swap is only safe if a mistake in it would turn something red. Coverage does not tell you that. Deliberate defects do: change the code on purpose and check that a test fails. Urithi's v1 caught <strong>285 of 285</strong> such defects before release, run in parallel copies of the repository. In the harness study, the pinned statements were not called done until every hand-made defect on the new lines was caught. Three survived at first, and each pointed at a test that checked too little: one never verified that the score counted only sentences that state a fact, one never verified that the assistant's replies still reached the summary, and one never verified that the dashboard actually showed the new score.</p>
+<p>The CLE adds a rule I now use everywhere: <strong>a non-measurement is never a verdict.</strong> A check that cannot run in the configured space reports <code>unavailable</code>, and the gap is disclosed instead of passing silently.</p>
+<h2 id="back-to-the-block">Back to the block</h2>
+<p>So what would I change in Context as a Service today? The structure holds. A block still has a model, tools, a prompt and evals, and promotion still goes from dev to prod. What changes is what the block declares, and what its evals are allowed to conclude.</p>
+<figure class="fig wide"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/research/keeping-pace/7-block-2025-today.png"><img src="/assets/img/research/keeping-pace/7-block-2025-today.gif" alt="The Context Block in 2025 and today: Model gains a fingerprint, Tools gain cache classes, Memory becomes Harness, Evals re-run on drift" width="1200" height="675" loading="lazy" decoding="async"></picture><figcaption>Figure 7. The block grows a harness section, and its evals stop being a gate passed once.</figcaption></figure>
+<div class="tbl wide"><table>
+<thead>
+<tr>
+<th></th>
+<th>Context as a Service, 2025</th>
+<th>The block I would write today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory</td>
+<td>a scope (short term, conversation)</td>
+<td>an architecture with measured trade-offs, and the embedder that serves it, with its exact revision and its own thresholds</td>
+</tr>
+<tr>
+<td>Evals</td>
+<td>pass once to lock a version</td>
+<td>recall, latency, cost and the provider's cache share, re-run whenever the model, the embedder or the provider changes</td>
+</tr>
+<tr>
+<td>Promotion</td>
+<td>a button</td>
+<td>a bench on the user's own history that has to agree</td>
+</tr>
+<tr>
+<td><code>latest</code></td>
+<td>the default for continuous delivery</td>
+<td>only where a re-run happens before the label moves</td>
+</tr>
+</tbody>
+</table></div>
+<p>The last line is the one I got most wrong. "No need to touch the code, it will use the latest version" is exactly how a better model ends up behind a worse threshold.</p>
+<h2 id="what-i-do-not-know">What I do not know</h2>
+<p>These habits come from three systems built mostly around one person's usage and generated scenarios, often with one run per setup. They kept those projects honest; I have not measured them on a team or across organisations. Some things I still cannot measure well: the CLE validates when an agent should trigger, never the quality of its answer, and the harness study scores recall by matching strings in the answer. The pinned statements code is on a branch, not yet merged.</p>
+<h2 id="the-short-version">The short version</h2>
+<p>You cannot keep up by reading faster. You keep up by making each change cheap to try and quick to judge:</p>
+<ol>
+<li>every moving part behind an interface, with a recorded identity;</li>
+<li>thresholds that travel with their space;</li>
+<li>proof that expires when the model under it moves;</li>
+<li>figures that are re-measured, never relabelled;</li>
+<li>a small bench of your own usage, free first, then cheap;</li>
+<li>tests that would notice a mistake.</li>
+</ol>
+<p>Then a new model, a new provider rule or a new paper is not a rewrite. It is a run.</p>
+<hr />
+<p><em>Code and measurements: Urithi (<code>apu-urithi</code>), the Context Lifecycle Engine and the harness cache study. Every number in the tables comes from a figure generated from frozen runs, with the command that reproduces it.</em></p>
+    </article>
+
+    <div class="end">
+      <a class="btn" href="/research/context-lifecycle-engine">Context Lifecycle Engine</a>
+      <a class="btn ghost" href="/research/urithi">Urithi, step by step</a>
+      <a class="btn ghost" href="https://medium.com/google-cloud/context-as-a-service-modular-architecture-for-the-age-of-ai-agents-58fbae3ee030">Context as a Service, 2025</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Ezekias Bokove, Google Developer Expert for Google Cloud</p>
+      <ul>
+        <li><a href="https://github.com/EZFRICA" rel="me">GitHub</a></li>
+        <li><a href="https://ezekiasb.medium.com/" rel="me">Medium</a></li>
+        <li><a href="https://www.linkedin.com/in/ezekias-bokove/" rel="me">LinkedIn</a></li>
+        <li><a href="https://twitter.com/EzekiasBokove" rel="me">X</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
