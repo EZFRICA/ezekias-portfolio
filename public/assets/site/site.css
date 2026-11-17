@@ -444,3 +444,5 @@ body:has(.story--full) { overflow-x: clip; }
 
 /* Reserve the home die's space before the script draws it. */
 #apu-die:empty { aspect-ratio: 692 / 380; }
+
+.nav .sub .sep { height: 1px; margin: 0.25rem 0.5rem; background: var(--rule); }
